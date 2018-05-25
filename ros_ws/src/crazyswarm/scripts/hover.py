@@ -9,8 +9,7 @@ def postionFinder(cf,pos):
     print(pos)
 
 
-
-Z = 0.20
+Z = 0.30
 
 if __name__ == "__main__":
     swarm = Crazyswarm()

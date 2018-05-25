@@ -1,9 +1,105 @@
 crazyflies:
   - id: 1
-    channel: 100
-    initialPosition: [1.5, 1.5, 0.0]
-    type: medium
-  - id: 40
-    channel: 100
-    initialPosition: [-1.0, -0.5, 0.0]
-    type: default
+    channel: 82
+    initialPosition: [0.0, 0.5, 0.0]
+    type: defaultCF1
+
+  - id: 2
+    channel: 82
+    initialPosition: [0.0, 1.0, 0.0]
+    type: defaultCF2
+
+  - id: 3
+    channel: 82
+    initialPosition: [0.0, 1.5, 0.0]
+    type: defaultCF3
+
+  - id: 4
+    channel: 82
+    initialPosition: [0.0, 2.0, 0.0]
+    type: defaultCF4
+
+  - id: 5
+    channel: 82
+    initialPosition: [0.0, 2.5, 0.0]
+    type: defaultCF5
+
+  - id: 6
+    channel: 82
+    initialPosition: [0.0, 3.0, 0.0]
+    type: defaultCF6
+
+  - id: 7
+    channel: 82
+    initialPosition: [0.0, 3.5, 0.0]
+    type: defaultCF7
+
+  - id: 8
+    channel: 82
+    initialPosition: [0.0, 4.0, 0.0]
+    type: defaultCF8
+
+  - id: 9
+    channel: 82
+    initialPosition: [0.0, 4.5, 0.0]
+    type: defaultCF9
+
+  - id: 10
+    channel: 82
+    initialPosition: [0.0, 5.0, 0.0]
+    type: defaultCF10
+
+  - id: 11
+    channel: 88
+    initialPosition: [-1.0, 0.5, 0.0]
+    type: defaultCF11
+
+  - id: 12
+    channel: 88
+    initialPosition: [-1.0, 1.0, 0.0]
+    type: defaultCF12
+
+  - id: 13
+    channel: 88
+    initialPosition: [-1.0, 1.5, 0.0]
+    type: defaultCF13
+
+  - id: 14
+    channel: 88
+    initialPosition: [-1.0, 2.0, 0.0]
+    type: defaultCF14
+
+  - id: 15
+    channel: 88
+    initialPosition: [-1.0, 2.5, 0.0]
+    type: defaultCF15
+
+  - id: 16
+    channel: 88
+    initialPosition: [-1.0, 3.0, 0.0]
+    type: defaultCF16
+
+  - id: 17
+    channel: 88
+    initialPosition: [-1.0, 3.5, 0.0]
+    type: defaultCF17
+
+  - id: 18
+    channel: 88
+    initialPosition: [-1.0, 4.0, 0.0]
+    type: defaultCF18
+
+  - id: 19
+    channel: 88
+    initialPosition: [-1.0, 4.5, 0.0]
+    type: defaultCF19
+
+  - id: 20
+    channel: 88
+    initialPosition: [-1.0, 5.0, 0.0]
+    type: defaultCF20
+
+  - id: 21
+    channel: 82
+    initialPosition: [0.0, 0.0, 0.0]
+    type: defaultCF21

@@ -1,5 +1,9 @@
 crazyflies:
-- channel: 100
-  id: 1
-  initialPosition: [1.5, 1.5, 0.0]
-  type: medium
+- channel: 82
+  id: 4
+  initialPosition: [0.0, 2.0, 0.0]
+  type: defaultCF4
+- channel: 82
+  id: 21
+  initialPosition: [0.0, 0.0, 0.0]
+  type: defaultCF21

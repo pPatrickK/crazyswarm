@@ -74,7 +74,507 @@ crazyflieTypes:
         i_range_z: 4.0
         mass: 0.380
         massThrust: 5400 # 5500 - full battery
-numMarkerConfigurations: 3
+  defaultCF1: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 3 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF2: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 4 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF3: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 5 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF4: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 6 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF5: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 7 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF6: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 8 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF7: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 9 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF8: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 10 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF9: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 11 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF10: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 12 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF11: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 13 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF12: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 14 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF13: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 15 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF14: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 16 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF15: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 17 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF16: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 18 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF17: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 19 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF18: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 20 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF19: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 21 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  defaultCF20: ##### individuelle drohnen hinzugefügt
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 22 #individuelle config
+    dynamicsConfiguration: 0
+    firmwareParams:
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+numMarkerConfigurations: 23
 markerConfigurations:
   "0":  # for standard Crazyflie
     numPoints: 4
@@ -100,6 +600,174 @@ markerConfigurations:
       "1": [-0.0113941,0.00945842,0.0984811]
       "2": [-0.0306277,0.0514879,0.0520456]
       "3": [0.0535816,-0.0400775,0.0432799]
+  "3":  # for standard Crazyflie #1
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.0083914,-0.066906,0.0023565]
+      "1": [-0.040347,-0.0062816,0.035583]
+      "2": [0.068296,-0.0039835,-0.0021942]
+      "3": [-0.011975,0.057238,0.0025915]
+  "4":  # for standard Crazyflie #2
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.072,-0.0010523,-0.004885]
+      "1": [-0.008035,-0.06426,0.0019685]
+      "2": [-0.038596,-0.0038499,0.03466]
+      "3": [-0.010251,0.065538,0.0016673]
+  "5":  # for standard Crazyflie #3
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.0094588,-0.063575,0.0027985]
+      "1": [-0.012754,0.067303,-0.00132]
+      "2": [0.058759,-0.0019117,-0.0013697]
+      "3": [-0.044118,-0.0047782,0.036002]
+  "6":  # for standard Crazyflie #4
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.015082,-0.064516,0.0033774]
+      "1": [-0.011153,0.059234,0.00043429]
+      "2": [0.072547,-0.0026853,-0.0026474]
+      "3": [-0.047844,-0.0031723,0.030638]
+  "7":  # for standard Crazyflie #5
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.010445,0.060299,0.0035153]
+      "1": [-0.010459,-0.065004,0.0027114]
+      "2": [-0.04286,-0.00058551,0.032295]
+      "3": [0.067696,-0.0022838,-0.0048263]
+  "8":  # for standard Crazyflie #6
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.014559,0.061289,0.0024292]
+      "1": [-0.0069967,-0.0674,0.0024728]
+      "2": [0.069874,-0.0022607,-0.004468]
+      "3": [-0.049774,-0.0033747,0.029406]
+  "9":  # for standard Crazyflie #7
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.070422,-0.0039873,-0.0057514]
+      "1": [-0.045589,0.00051227,0.029525]
+      "2": [-0.0083859,0.068817,0.0014054]
+      "3": [-0.013369,-0.065085,0.0028566]
+  "10":  # for standard Crazyflie #8
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.068161,-0.00063926,1.2435e-05]
+      "1": [-0.029493,-0.0026899,0.032212]
+      "2": [-0.0055932,-0.067567,0.0026143]
+      "3": [-0.013347,0.055652,-0.00026235]
+  "11":  # for standard Crazyflie #9
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.068627,-0.0042335,-0.0055338]
+      "1": [-0.011559,0.059939,0.0014359]
+      "2": [-0.007939,-0.063195,0.0029703]
+      "3": [-0.041096,-0.0080184,0.036988]
+  "12":  # for standard Crazyflie #10
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.012677,-0.066726,0.0017488]
+      "1": [-0.043345,0.0033207,0.033282]
+      "2": [-0.010129,0.060372,0.0020062]
+      "3": [0.065757,-0.0040865,-0.0028978]
+  "13":  # for standard Crazyflie #11
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.051986,-0.0076569,0.029243]
+      "1": [0.06809,-0.0056788,-0.0059458]
+      "2": [-0.011229,0.062049,0.0014266]
+      "3": [-0.011287,-0.064657,0.0025684]
+  "14":  # for standard Crazyflie #12
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.048393,-0.0088981,0.034998]
+      "1": [0.069544,-0.0047357,-0.0033404]
+      "2": [-0.011463,0.061513,-0.00060159]
+      "3": [-0.010711,-0.062645,0.0016244]
+  "15":  # for standard Crazyflie #13
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.046317,-0.0058585,0.036889]
+      "1": [0.068318,-0.0040571,-0.0047232]
+      "2": [-0.010616,0.059574,0.0027482]
+      "3": [-0.009185,-0.060128,0.0027582]
+  "16":  # for standard Crazyflie #14
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.047608,0.0037214,0.0008728]
+      "1": [-0.0086062,0.063444,0.0036214]
+      "2": [-0.0048928,-0.064588,0.0014988]
+      "3": [-0.0080819,-0.00026529,0.026256]
+  "17":  # for standard Crazyflie #15
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.047672,-0.0078815,0.03625]
+      "1": [-0.013293,0.061365,0.0026885]
+      "2": [-0.013829,-0.066353,0.0017948]
+      "3": [0.069358,-0.0034663,-0.0049065]
+  "18":  # for standard Crazyflie #16
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.074241,-0.0021118,0.00166]
+      "1": [-0.049227,-0.001113,0.025543]
+      "2": [-0.011019,0.063035,-0.00017484]
+      "3": [-0.010143,-0.0635,0.00043594]
+  "19":  # for standard Crazyflie #17
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.012931,0.059259,0.0015669]
+      "1": [-0.03891,-0.0042685,0.03184]
+      "2": [-0.011316,-0.061838,0.0014085]
+      "3": [0.067211,-0.0045615,-0.004751]
+  "20":  # for standard Crazyflie #18
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.0078649,-0.064756,0.0019449]
+      "1": [0.068842,-0.0059373,-0.0045597]
+      "2": [-0.044422,-0.0047875,0.032634]
+      "3": [-0.012107,0.063026,0.00085322]
+  "21":  # for standard Crazyflie #19
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.070037,-0.0041418,-0.0057091]
+      "1": [-0.053203,-0.0034709,0.026408]
+      "2": [-0.010949,-0.067778,-0.0012851]
+      "3": [-0.010691,0.060579,0.0029281]
+  "22":  # for standard Crazyflie #20
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [-0.0058999,0.064461,0.0022837]
+      "1": [0.070131,-0.0070613,-0.00089498]
+      "2": [-0.046579,0.0014956,0.03188]
+      "3": [-0.015619,-0.063279,0.0012959]
+  "23":  # for standard Crazyflie #21
+    numPoints: 4
+    offset: [0.0, 0.0, 0.0]
+    points:
+      "0": [0.0026572,-0.061283,0.00017827]
+      "1": [0.068728,-0.0083348,-0.0028689]
+      "2": [-0.026833,-0.0080013,0.020628]
+      "3": [-0.002131,0.049102,0.0011981]
 numDynamicsConfigurations: 1
 dynamicsConfigurations:
   "0":
@@ -112,4 +780,3 @@ dynamicsConfigurations:
     maxRoll: 1.4
     maxPitch: 1.4
     maxFitnessScore: 0.001
-

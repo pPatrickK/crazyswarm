@@ -14,7 +14,8 @@ with open("../ros_ws/src/crazyswarm/launch/crazyflieTypes.yaml", 'r') as ymlfile
 
 for crazyflie in cfg["crazyflies"]:
     id = "{0:02X}".format(crazyflie["id"])
-    uri = "radio://0/{}/2M/E7E7E7E7{}".format(crazyflie["channel"], id)
+    # uri = "radio://0/{}/2M/E7E7E7E7{}".format(crazyflie["channel"], id)
+    uri = "radio://0/{}/250K/E7E7E7E7{}".format(crazyflie["channel"], id)
     print("{}: ".format(crazyflie["id"]), end="", flush=True)
     cfType = crazyflie["type"]
     bigQuad = cfTypes[cfType]["bigQuad"]

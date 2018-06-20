@@ -1,11 +1,11 @@
 [submodule "crazyflie-firmware"]
 	path = crazyflie-firmware
-	url = https://github.com/USC-ACTLab/crazyflie-firmware.git
-	branch = crazyswarm_master
+	url = https://github.com/pPatrickK/crazyflie-firmware.git
+	branch = flw
 [submodule "crazyflie-lib-python"]
 	path = crazyflie-lib-python
-	url = https://github.com/bitcraze/crazyflie-lib-python.git
-	branch = master
+	url = https://github.com/pPatrickK/crazyflie-lib-python.git
+	branch = flw
 [submodule "crazyflie-clients-python"]
 	path = crazyflie-clients-python
 	url = https://github.com/bitcraze/crazyflie-clients-python.git
@@ -24,4 +24,5 @@
 	url = https://github.com/USC-ACTLab/libmotioncapture.git
 [submodule "ros_ws/src/crazyflie_ros"]
 	path = ros_ws/src/crazyflie_ros
-	url = https://github.com/whoenig/crazyflie_ros.git
+	url = https://github.com/pPatrickK/crazyflie_ros.git
+    branch = flw

@@ -112,7 +112,7 @@ public:
   }
 };
 
-static ROSLogger rosLogger;
+static ROSLogger rosLogger; //bubu, unwichtig, also das kommentieren an sich meine ich
 
 // TODO this is incredibly dumb, fix it
 /*

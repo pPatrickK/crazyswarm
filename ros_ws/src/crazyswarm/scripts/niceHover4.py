@@ -22,6 +22,7 @@ if __name__ == "__main__":
         cf.goTo(pos, 0, 7.0)
     timeHelper.sleep(7.1)
 
+
     for cf in allcfs.crazyflies:
         pos = np.array(cf.initialPosition) + np.array([-5, 1.5, 1.2])
         cf.goTo(pos, 0, 14)

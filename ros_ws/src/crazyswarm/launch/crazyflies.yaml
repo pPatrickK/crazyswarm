@@ -1,5 +1,5 @@
 crazyflies:
-- channel: 82
-  id: 1
-  initialPosition: [0.0, 0.5, 0.0]
-  type: defaultCF1
+- channel: 95
+  id: 21
+  initialPosition: [-1.0, 0.5, 0.0]
+  type: defaultCF21

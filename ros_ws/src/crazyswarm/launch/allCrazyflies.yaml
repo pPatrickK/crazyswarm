@@ -6,36 +6,45 @@ crazyflies:
   - id: 2
     channel: 82
     initialPosition: [0.0, 1.0, 0.0]
-    type: defaultCF1
+    type: defaultCF2
   - id: 3
     channel: 82
     initialPosition: [0.0, 1.5, 0.0]
-    type: defaultCF1
+    type: defaultCF3
   - id: 4
     channel: 82
     initialPosition: [0.0, 2.0, 0.0]
-    type: defaultCF1
+    type: defaultCF4
   - id: 5
     channel: 82
     initialPosition: [0.0, 2.5, 0.0]
-    type: defaultCF1
+    type: defaultCF5
   - id: 6
     channel: 82
     initialPosition: [0.0, 3.0, 0.0]
-    type: defaultCF1
+    type: defaultCF6
   - id: 7
     channel: 82
     initialPosition: [0.0, 3.5, 0.0]
-    type: defaultCF1
+    type: defaultCF7
   - id: 8
     channel: 82
     initialPosition: [0.0, 4.0, 0.0]
-    type: defaultCF1
+    type: defaultCF8
   - id: 9
     channel: 82
     initialPosition: [0.0, 4.5, 0.0]
-    type: defaultCF1
+    type: defaultCF9
   - id: 10
     channel: 82
     initialPosition: [0.0, 5.0, 0.0]
-    type: defaultCF1
+    type: defaultCF10
+
+  - id: 21
+    channel: 95
+    initialPosition: [-1.0, 0.5, 0.0]
+    type: defaultCF21
+  - id: 22
+    channel: 95
+    initialPosition: [-1.0, 1.0, 0.0]
+    type: defaultCF22

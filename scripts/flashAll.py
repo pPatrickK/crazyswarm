@@ -22,7 +22,8 @@ def main():
 
     for crazyflie in cfg["crazyflies"]:
         id = "{0:02X}".format(crazyflie["id"])
-        uri = "radio://0/{}/2M/E7E7E7E7{}".format(crazyflie["channel"], id)
+        #uri = "radio://0/{}/2M/E7E7E7E7{}".format(crazyflie["channel"], id)
+        uri = "radio://0/{}/250K/E7E7E7E7{}".format(crazyflie["channel"], id)
         if args.nrf51:
             print("Flash NRF51 FW to {}".format(uri))
             subprocess.call(["../crazyflie-clients-python/bin/cfloader -w " + uri + " flash ../crazyflie2-nrf-firmware/cf2_nrf.bin nrf51-fw"], shell=True)

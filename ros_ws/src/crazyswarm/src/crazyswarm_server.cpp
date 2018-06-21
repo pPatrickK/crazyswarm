@@ -1494,7 +1494,7 @@ public:
       auto endIteration = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsed = endIteration - startIteration;
       double elapsedSeconds = elapsed.count();
-      if (elapsedSeconds > 0.009) {
+      if (elapsedSeconds > 0.010) { //0.009
         ROS_WARN("Latency too high! Is %f s.", elapsedSeconds);
       }
 

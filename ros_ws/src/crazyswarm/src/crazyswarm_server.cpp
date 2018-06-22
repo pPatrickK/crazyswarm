@@ -56,8 +56,10 @@
 #include <mutex>
 #include <wordexp.h> // tilde expansion
 
-#define M_PI 3.14159265358979323846
 #include <cmath>
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 /*
 Threading
@@ -916,12 +918,13 @@ private:
 
   bool isValidModification(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose)
   {
-    auto x_threshold = 13.37;
-    auto y_threshold = 13.37;
-    auto z_threshold = 13.37;
-    auto roll_threshold = 13.37;
-    auto pitch_threshold = 13.37;
-    auto yaw_threshold = 13.37;
+    constexpr auto angle_threshold = M_PI / 4; // 45°
+    auto x_threshold = 0.3;
+    auto y_threshold = 0.3;
+    auto z_threshold = 0.3;
+    auto roll_threshold = angle_threshold;
+    auto pitch_threshold = angle_threshold;
+    auto yaw_threshold = angle_threshold;
 
     const auto x_difference = std::abs(currentPose.x - oldPose.x);
     const auto y_difference = std::abs(currentPose.y - oldPose.y);

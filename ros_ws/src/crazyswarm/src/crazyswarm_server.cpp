@@ -916,26 +916,30 @@ private:
     return yawFromQuaternion(currentPose) - yawFromQuaternion(oldPose);
   }
 
-  bool isValidModification(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose)
+  bool hasSwapped(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose)
   {
-    constexpr auto angle_threshold = M_PI / 4; // 45°
-    auto x_threshold = 0.3;
-    auto y_threshold = 0.3;
-    auto z_threshold = 0.3;
-    auto roll_threshold = angle_threshold;
-    auto pitch_threshold = angle_threshold;
-    auto yaw_threshold = angle_threshold;
+    const auto x_threshold = 0.3;
+    const auto y_threshold = 0.3;
+    const auto z_threshold = 0.3;
 
     const auto x_difference = std::abs(currentPose.x - oldPose.x);
     const auto y_difference = std::abs(currentPose.y - oldPose.y);
     const auto z_difference = std::abs(currentPose.z - oldPose.z);
 
+    return x_difference > x_threshold || y_difference > y_threshold || z_difference > z_threshold;
+  }
+
+  bool hasFlipped(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
+    const auto angle_threshold = M_PI / 4; // 45°
+    const auto roll_threshold = angle_threshold;
+    const auto pitch_threshold = angle_threshold;
+    const auto yaw_threshold = angle_threshold;
+
     const auto roll_difference = std::abs(rollDifference(currentPose, oldPose));
     const auto pitch_difference = std::abs(pitchDifference(currentPose, oldPose));
     const auto yaw_difference = std::abs(yawDifference(currentPose, oldPose));
 
-    return   x_difference > x_threshold || y_difference > y_threshold || z_difference > z_threshold
-          || roll_difference > roll_threshold || pitch_difference > pitch_threshold || yaw_difference > yaw_threshold;
+    return roll_difference > roll_threshold || pitch_difference > pitch_threshold || yaw_difference > yaw_threshold;
   }
 
   void publishRigidBody(const std::string& name, uint8_t id, std::vector<CrazyflieBroadcaster::externalPose> &states)
@@ -958,8 +962,11 @@ private:
         const auto &currentPose = states[states.size() - 1];
         if(lastPoses.find(id) != lastPoses.end()) {
           const auto &lastPose = lastPoses[id];
-          if(!isValidModification(currentPose, lastPose)) {
-            std::cout << "Modification was invalid!" << std::endl;
+          if(!hasSwapped(currentPose, lastPose)) {
+            std::cout << "Potential swap detected with id: " << id << std::endl;
+          }
+          if(!hasFlipped(currentPose, lastPose)) {
+            std::cout << "Potential flip detected with id: " << id << std::endl;
           }
         }
         lastPoses[id] = currentPose;

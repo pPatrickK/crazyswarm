@@ -676,6 +676,8 @@ public:
     }
 
     if (m_useMotionCaptureObjectTracking) {
+      // correctRigidBodies()
+
       for (auto cf : m_cfs) {
         publishRigidBody(cf->frame(), cf->id(), states);
       }
@@ -881,66 +883,96 @@ public:
 
 private:
 
-  double rollFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+  double rollFromQuaternion(const libmotioncapture::Object &rigidBody) {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
-    const auto sinr = 2.0 * (pose.qw * pose.qx + pose.qy * pose.qz);
-    const auto cosr = 1.0 - 2.0 * (pose.qx * pose.qx + pose.qy * pose.qy);
+    const auto sinr = 2.0 * (rigidBody.rotation().w() * rigidBody.rotation().x() + rigidBody.rotation().y() * rigidBody.rotation().z());
+    const auto cosr = 1.0 - 2.0 * (rigidBody.rotation().x() * rigidBody.rotation().x() + rigidBody.rotation().y() * rigidBody.rotation().y());
     return std::atan2(sinr, cosr);
   }
 
-  double pitchFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+  double pitchFromQuaternion(const libmotioncapture::Object &rigidBody) {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
-    const auto sinp = 2.0 * (pose.qw * pose.qy - pose.qz * pose.qx);
+    const auto sinp = 2.0 * (rigidBody.rotation().w() * rigidBody.rotation().y() - rigidBody.rotation().z() * rigidBody.rotation().x());
     if(std::fabs(sinp) >= 1.0) {
       return std::copysign(M_PI / 2.0, sinp);
     }
     return std::asin(sinp);
   }
 
-  double yawFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+  double yawFromQuaternion(const libmotioncapture::Object &rigidBody) {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
-    double siny = 2.0 * (pose.qw * pose.qz + pose.qx * pose.qy);
-    double cosy = 1.0 - 2.0 * (pose.qy * pose.qy + pose.qz * pose.qz);
+    double siny = 2.0 * (rigidBody.rotation().w() * rigidBody.rotation().z() + rigidBody.rotation().x() * rigidBody.rotation().y());
+    double cosy = 1.0 - 2.0 * (rigidBody.rotation().y() * rigidBody.rotation().y() + rigidBody.rotation().z() * rigidBody.rotation().z());
     return std::atan2(siny, cosy);
   }
 
-  double rollDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
-    return rollFromQuaternion(currentPose) - rollFromQuaternion(oldPose);
+  double rollDifference(const libmotioncapture::Object &currentRigidBody, const libmotioncapture::Object &oldRigidBody) {
+    return rollFromQuaternion(currentRigidBody) - rollFromQuaternion(oldRigidBody);
   }
 
-  double pitchDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
-    return pitchFromQuaternion(currentPose) - pitchFromQuaternion(oldPose);
+  double pitchDifference(const libmotioncapture::Object &currentRigidBody, const libmotioncapture::Object &oldRigidBody) {
+    return pitchFromQuaternion(currentRigidBody) - pitchFromQuaternion(oldRigidBody);
   }
 
-  double yawDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
-    return yawFromQuaternion(currentPose) - yawFromQuaternion(oldPose);
+  double yawDifference(const libmotioncapture::Object &currentRigidBody, const libmotioncapture::Object &oldRigidBody) {
+    return yawFromQuaternion(currentRigidBody) - yawFromQuaternion(oldRigidBody);
   }
 
-  bool hasSwapped(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose)
+  bool hasSwapped(const libmotioncapture::Object &currentRigidBody, const libmotioncapture::Object &oldRigidBody)
   {
     const auto x_threshold = 0.3;
     const auto y_threshold = 0.3;
     const auto z_threshold = 0.3;
 
-    const auto x_difference = std::abs(currentPose.x - oldPose.x);
-    const auto y_difference = std::abs(currentPose.y - oldPose.y);
-    const auto z_difference = std::abs(currentPose.z - oldPose.z);
+    const auto x_difference = std::abs(currentRigidBody.position().x() - oldRigidBody.position().x());
+    const auto y_difference = std::abs(currentRigidBody.position().y() - oldRigidBody.position().y());
+    const auto z_difference = std::abs(currentRigidBody.position().z() - oldRigidBody.position().z());
 
     return x_difference > x_threshold || y_difference > y_threshold || z_difference > z_threshold;
   }
 
-  bool hasFlipped(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
+  bool hasFlipped(const libmotioncapture::Object &currentRigidBody, const libmotioncapture::Object &oldRigidBody) {
     const auto angle_threshold = M_PI / 4; // 45°
     const auto roll_threshold = angle_threshold;
     const auto pitch_threshold = angle_threshold;
     const auto yaw_threshold = angle_threshold;
 
-    const auto roll_difference = std::abs(rollDifference(currentPose, oldPose));
-    const auto pitch_difference = std::abs(pitchDifference(currentPose, oldPose));
-    const auto yaw_difference = std::abs(yawDifference(currentPose, oldPose));
+    const auto roll_difference = std::abs(rollDifference(currentRigidBody, oldRigidBody));
+    const auto pitch_difference = std::abs(pitchDifference(currentRigidBody, oldRigidBody));
+    const auto yaw_difference = std::abs(yawDifference(currentRigidBody, oldRigidBody));
 
     return roll_difference > roll_threshold || pitch_difference > pitch_threshold || yaw_difference > yaw_threshold;
   }
+
+  // void correctRigidBodies() {
+  //   std::vector<uint8_t> swapped_poses;
+  //   for(auto &rigidBody : *m_pMocapObjects) {
+  //     //if(find_if(table.begin(), table.end(), [&new_id](const entry &arg) {
+  //     //                                     return arg.first == new_id; }) != ...)
+  //     if(rigidBody.name() == name) {
+  //     }
+  //     CrazyflieBroadcaster::externalPose currentPose;
+  //     currentPose.id = id;
+  //     currentPose.x = rigidBody.position().x();
+  //     currentPose.y = rigidBody.position().y();
+  //     currentPose.z = rigidBody.position().z();
+  //     currentPose.qx = rigidBody.rotation().x();
+  //     currentPose.qy = rigidBody.rotation().y();
+  //     currentPose.qz = rigidBody.rotation().z();
+  //     currentPose.qw = rigidBody.rotation().w();
+  //
+  //     if(lastPoses.find(id) != lastPoses.end()) {
+  //       const auto &lastPose = lastPoses[id];
+  //       if(hasSwapped(currentPose, lastPose)) {
+  //         std::cout << "Potential swap detected with id: " << id << std::endl;
+  //         swapped_poses.push_back();
+  //       }
+  //       if(hasFlipped(currentPose, lastPose)) {
+  //         std::cout << "Potential flip detected with id: " << id << std::endl;
+  //       }
+  //     }
+  //   }
+  // }
 
   void publishRigidBody(const std::string& name, uint8_t id, std::vector<CrazyflieBroadcaster::externalPose> &states)
   {
@@ -959,17 +991,7 @@ private:
         states.back().qz = rigidBody.rotation().z();
         states.back().qw = rigidBody.rotation().w();
 
-        const auto &currentPose = states[states.size() - 1];
-        if(lastPoses.find(id) != lastPoses.end()) {
-          const auto &lastPose = lastPoses[id];
-          if(hasSwapped(currentPose, lastPose)) {
-            std::cout << "Potential swap detected with id: " << id << std::endl;
-          }
-          if(hasFlipped(currentPose, lastPose)) {
-            std::cout << "Potential flip detected with id: " << id << std::endl;
-          }
-        }
-        lastPoses[id] = currentPose;
+        lastPoses[id] = rigidBody;
 
         tf::Transform transform;
         transform.setOrigin(tf::Vector3(
@@ -1178,7 +1200,7 @@ private:
   }
 
 private:
-  std::map<uint8_t, CrazyflieBroadcaster::externalPose> lastPoses;
+  std::map<uint8_t, libmotioncapture::Object> lastPoses;
   std::vector<CrazyflieROS*> m_cfs;
   std::string m_interactiveObject;
   libobjecttracker::ObjectTracker* m_tracker;

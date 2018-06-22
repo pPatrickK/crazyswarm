@@ -962,10 +962,10 @@ private:
         const auto &currentPose = states[states.size() - 1];
         if(lastPoses.find(id) != lastPoses.end()) {
           const auto &lastPose = lastPoses[id];
-          if(!hasSwapped(currentPose, lastPose)) {
+          if(hasSwapped(currentPose, lastPose)) {
             std::cout << "Potential swap detected with id: " << id << std::endl;
           }
-          if(!hasFlipped(currentPose, lastPose)) {
+          if(hasFlipped(currentPose, lastPose)) {
             std::cout << "Potential flip detected with id: " << id << std::endl;
           }
         }

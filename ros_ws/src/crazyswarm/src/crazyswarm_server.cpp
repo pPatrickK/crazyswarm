@@ -56,6 +56,9 @@
 #include <mutex>
 #include <wordexp.h> // tilde expansion
 
+#define M_PI 3.14159265358979323846
+#include <cmath>
+
 /*
 Threading
  * There are 2N+1 threads, where N is the number of groups (== number of unique channels)
@@ -112,7 +115,7 @@ public:
   }
 };
 
-static ROSLogger rosLogger; //bubu, unwichtig, also das kommentieren an sich meine ich
+static ROSLogger rosLogger;
 
 // TODO this is incredibly dumb, fix it
 /*
@@ -876,6 +879,62 @@ public:
 
 private:
 
+  double rollFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+    // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
+    const auto sinr = 2.0 * (pose.qw * pose.qx + pose.qy * pose.qz);
+    const auto cosr = 1.0 - 2.0 * (pose.qx * pose.qx + pose.qy * pose.qy);
+    return std::atan2(sinr, cosr);
+  }
+
+  double pitchFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+    // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
+    const auto sinp = 2.0 * (pose.qw * pose.qy - pose.qz * pose.qx);
+    if(std::fabs(sinp) >= 1.0) {
+      return std::copysign(M_PI / 2.0, sinp);
+    }
+    return std::asin(sinp);
+  }
+
+  double yawFromQuaternion(const CrazyflieBroadcaster::externalPose &pose) {
+    // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
+    double siny = 2.0 * (pose.qw * pose.qz + pose.qx * pose.qy);
+    double cosy = 1.0 - 2.0 * (pose.qy * pose.qy + pose.qz * pose.qz);
+    return std::atan2(siny, cosy);
+  }
+
+  double rollDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
+    return rollFromQuaternion(currentPose) - rollFromQuaternion(oldPose);
+  }
+
+  double pitchDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
+    return pitchFromQuaternion(currentPose) - pitchFromQuaternion(oldPose);
+  }
+
+  double yawDifference(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose) {
+    return yawFromQuaternion(currentPose) - yawFromQuaternion(oldPose);
+  }
+
+  bool isValidModification(const CrazyflieBroadcaster::externalPose &currentPose, const CrazyflieBroadcaster::externalPose &oldPose)
+  {
+    auto x_threshold = 13.37;
+    auto y_threshold = 13.37;
+    auto z_threshold = 13.37;
+    auto roll_threshold = 13.37;
+    auto pitch_threshold = 13.37;
+    auto yaw_threshold = 13.37;
+
+    const auto x_difference = std::abs(currentPose.x - oldPose.x);
+    const auto y_difference = std::abs(currentPose.y - oldPose.y);
+    const auto z_difference = std::abs(currentPose.z - oldPose.z);
+
+    const auto roll_difference = std::abs(rollDifference(currentPose, oldPose));
+    const auto pitch_difference = std::abs(pitchDifference(currentPose, oldPose));
+    const auto yaw_difference = std::abs(yawDifference(currentPose, oldPose));
+
+    return   x_difference > x_threshold || y_difference > y_threshold || z_difference > z_threshold
+          || roll_difference > roll_threshold || pitch_difference > pitch_threshold || yaw_difference > yaw_threshold;
+  }
+
   void publishRigidBody(const std::string& name, uint8_t id, std::vector<CrazyflieBroadcaster::externalPose> &states)
   {
     bool found = false;
@@ -892,6 +951,15 @@ private:
         states.back().qy = rigidBody.rotation().y();
         states.back().qz = rigidBody.rotation().z();
         states.back().qw = rigidBody.rotation().w();
+
+        const auto &currentPose = states[states.size() - 1];
+        if(lastPoses.find(id) != lastPoses.end()) {
+          const auto &lastPose = lastPoses[id];
+          if(!isValidModification(currentPose, lastPose)) {
+            std::cout << "Modification was invalid!" << std::endl;
+          }
+        }
+        lastPoses[id] = currentPose;
 
         tf::Transform transform;
         transform.setOrigin(tf::Vector3(
@@ -1100,6 +1168,7 @@ private:
   }
 
 private:
+  std::map<uint8_t, CrazyflieBroadcaster::externalPose> lastPoses;
   std::vector<CrazyflieROS*> m_cfs;
   std::string m_interactiveObject;
   libobjecttracker::ObjectTracker* m_tracker;
@@ -1494,7 +1563,7 @@ public:
       auto endIteration = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsed = endIteration - startIteration;
       double elapsedSeconds = elapsed.count();
-      if (elapsedSeconds > 0.010) { //0.009
+      if (elapsedSeconds > 0.009) {
         ROS_WARN("Latency too high! Is %f s.", elapsedSeconds);
       }
 

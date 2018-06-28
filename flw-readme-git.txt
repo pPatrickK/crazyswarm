@@ -9,4 +9,5 @@ In short:
 Submodules that we have forked (and configured) so far (2018-06-20):
 - crazyflie-firmware
 - crazyflie-lib-python
-It seems that a few more other submodules had already forked in Patrick's account, but they had not yet been configured in .gitmodules. Thus, I removed them again and deleted the forks to clean things up a little bit.
+- row_ws/src/crazyflie_ros
+It seems that a few more other submodules are already forked in Patrick's account, but they are not yet configured in .gitmodules.

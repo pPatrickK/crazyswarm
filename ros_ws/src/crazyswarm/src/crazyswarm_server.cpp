@@ -56,10 +56,12 @@
 #include <mutex>
 #include <wordexp.h> // tilde expansion
 
-#include <cmath>
+// Sören Schellhoff flip detection
+/*#include <cmath>
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
 #endif
+*/
 
 /*
 Threading
@@ -676,7 +678,7 @@ public:
     }
 
     if (m_useMotionCaptureObjectTracking) {
-      // correctRigidBodies()
+      // correctRigidBodies() // Sören Schellhoff flip detection
 
       for (auto cf : m_cfs) {
         publishRigidBody(cf->frame(), cf->id(), states);
@@ -883,6 +885,8 @@ public:
 
 private:
 
+  // Sören Schellhoff flip detection
+  /*	
   double rollFromQuaternion(const libmotioncapture::Object &rigidBody) {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
     const auto sinr = 2.0 * (rigidBody.rotation().w() * rigidBody.rotation().x() + rigidBody.rotation().y() * rigidBody.rotation().z());
@@ -973,7 +977,7 @@ private:
   //     }
   //   }
   // }
-
+*/
   void publishRigidBody(const std::string& name, uint8_t id, std::vector<CrazyflieBroadcaster::externalPose> &states)
   {
     bool found = false;
@@ -991,7 +995,8 @@ private:
         states.back().qz = rigidBody.rotation().z();
         states.back().qw = rigidBody.rotation().w();
 
-        lastPoses[id] = rigidBody;
+	// Sören Schellhoff flip detection
+        //lastPoses[id] = rigidBody;
 
         tf::Transform transform;
         transform.setOrigin(tf::Vector3(
@@ -1200,7 +1205,8 @@ private:
   }
 
 private:
-  std::map<uint8_t, libmotioncapture::Object> lastPoses;
+  // Sören Schellhoff flip detection
+  // std::map<uint8_t, libmotioncapture::Object> lastPoses;
   std::vector<CrazyflieROS*> m_cfs;
   std::string m_interactiveObject;
   libobjecttracker::ObjectTracker* m_tracker;
@@ -1595,7 +1601,7 @@ public:
       auto endIteration = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsed = endIteration - startIteration;
       double elapsedSeconds = elapsed.count();
-      if (elapsedSeconds > 0.009) {
+      if (elapsedSeconds > 0.010) { //0.009
         ROS_WARN("Latency too high! Is %f s.", elapsedSeconds);
       }
 

@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     z = 0.4
     TRIALS = 1
-    TIMESCALE = 0.6
+    TIMESCALE = 1.0
     for i in range(TRIALS):
         for cf in allcfs.crazyflies:
             cf.uploadTrajectory(0, 0, traj1)

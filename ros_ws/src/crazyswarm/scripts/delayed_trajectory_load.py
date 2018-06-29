@@ -5,7 +5,7 @@ import numpy as np
 from pycrazyswarm import *
 import uav_trajectory
 
-if __name__ == "__main__":
+if __name__ == "__main__": 
     swarm = Crazyswarm()
     timeHelper = swarm.timeHelper
     allcfs = swarm.allcfs

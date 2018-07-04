@@ -1,4 +1,4 @@
 <launch>
-<node pkg="$(find mqtt_publisher)" type="scripts/publish_tf_mqtt.py" name="mqtt_publisher" output="screen">
+<node pkg="mqtt_publisher" type="publish_tf_mqtt.py" name="mqtt_publisher" output="screen">
 </node>
 </launch>

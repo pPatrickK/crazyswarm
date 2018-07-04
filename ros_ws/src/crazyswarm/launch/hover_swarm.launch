@@ -61,6 +61,8 @@
     <param name="timescale" value="0.8" />
   </node>
 
+  <include file="$(find mqtt_publisher)/launch/mqtt_publisher.launch" />
+
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find crazyswarm)/launch/test.rviz"/>
 
   <!-- <node pkg="rqt_plot" type="rqt_plot" name="rqt_plot_x" args="/cf2/log1/values[0]"/> -->

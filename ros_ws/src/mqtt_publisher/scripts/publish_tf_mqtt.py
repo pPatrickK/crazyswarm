@@ -17,38 +17,46 @@ import paho.mqtt.client as paho
 
 #defines
 TF_TOPIC = 'tf'
-MQTT_BROKER = '192.168.2.189'
-MQTT_PORT = '1883'
-MQTT_TOPIC = 'test1'
+MQTT_BROKER = '129.217.152.1' #'192.168.2.189'
+MQTT_PORT = '8883' #'1883'
+MQTT_TOPIC = 'crazyflie/positions'
 
 #prototype test
 PROTOTYPE_TEST = False
 PROTOTYPE = {
 	"header": {
-		"stamp": {"secs": 1527075825, "nsecs": 446688634}, 
+		"stamp": {"secs": 1527075825, "nsecs": 446688634},
 		"frame_id": "world", "seq": 0
 		},
 	"transform": {
-		"translation": {"y": -0.730628550053, "x": 1.22334706783, "z": 0.0395280644298}, 
+		"translation": {"y": -0.730628550053, "x": 1.22334706783, "z": 0.0395280644298},
 		"rotation": {"y": -0.0111685172939, "x": 0.00285034257295, "z": -0.844045171385, "w": 0.536148196332}
-		}, 
+		},
 	"child_frame_id": "cf2"
 }
+
+# {"id":"cf2", "x": 0.00285034257295, "y": -0.0111685172939 }
 
 def send_msg_once():
 	data_as_json = json.dumps(PROTOTYPE)
 	publish_mqtt(data_as_json)								#data is sent as a json string
-	
+
 def on_publish():
 	print('published')
 
 def publish_mqtt(data_as_json):
-	ret= client1.publish(MQTT_TOPIC,(data_as_json))				#publish
+	ret= client1.publish(MQTT_TOPIC,(data_as_json), 0, False)				#publish
 
 def parse_callback(data):
-	y = yaml.load(str(data.transforms[0]))
-	data_as_json = json.dumps(y)
-	publish_mqtt(data_as_json)								#data is sent as a json string
+	#y = yaml.load(str(data.transforms[0]))
+
+	meass = "{\"id\":\"" + data.transforms[0].child_frame_id + "\",  \"x\": " + str(data.transforms[0].transform.translation.x) + ", \"y\": " + str(data.transforms[0].transform.translation.y) + ", \"z\": " + str(data.transforms[0].transform.translation.z) + " }"
+	# meass = ''.join(["{\"id\":\"", data.transforms[0].child_frame_id, "\",  \"x\": ", str(data.transforms[0].transform.translation.x), ", \"y\": ", str(data.transforms[0].transform.translation.y), ", \"z\": ", str(data.transforms[0].transform.translation.z), " }"])
+	# if(data.transforms[0].child_frame_id == "cf16"):
+		# print(meass)
+	#data_as_json = json.dumps(y)
+	# print(data_as_json)
+	publish_mqtt(meass)								#data is sent as a json string
 
 def mqtt_tf_publisher():
 	rospy.init_node('mqtt_tf_publisher', anonymous=False)
@@ -63,6 +71,5 @@ if __name__ == '__main__':
 	#ros subscribe node
 	if PROTOTYPE_TEST:
 		send_msg_once()
-	else:	
+	else:
 		mqtt_tf_publisher()
-    

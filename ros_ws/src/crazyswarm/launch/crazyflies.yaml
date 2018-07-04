@@ -1,1 +1,21 @@
-crazyflies: []
+crazyflies:
+- channel: 82
+  id: 6
+  initialPosition: [4.2442, 4.6941, 0.5032]
+  type: defaultCF6
+- channel: 82
+  id: 9
+  initialPosition: [1.1343, 4.6946, 0.5024]
+  type: defaultCF9
+- channel: 88
+  id: 11
+  initialPosition: [-0.5734, 4.6871, 0.4834]
+  type: defaultCF11
+- channel: 88
+  id: 13
+  initialPosition: [-2.2318, 4.6809, 0.5042]
+  type: defaultCF13
+- channel: 88
+  id: 14
+  initialPosition: [-2.4549, 4.677, 0.4987]
+  type: defaultCF14

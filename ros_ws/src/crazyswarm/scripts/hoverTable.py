@@ -212,7 +212,7 @@ def group_1(swarmmover): # 1 2 3 4
     z_start = 1.0
     start_time = 2.0
     z_land = 0.2
-    land_time = 2.0
+    land_time = 4.0
     z_movement = 1.0
 
     swarmmover.takeoff_by_id(z_start, [1,2,3,4,5,6,7,8,9,10], start_time)
@@ -254,8 +254,8 @@ def group_1(swarmmover): # 1 2 3 4
 def group_2(swarmmover): #17 18 19 20
     z_start = 1.0
     start_time = 2.0
-    z_land = 0.58
-    land_time = 3.0
+    z_land = 0.3
+    land_time = 4.0
     z_movement = 1.0
 
     # br [1,3,5,7,9,11,13]

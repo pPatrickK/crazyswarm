@@ -2,113 +2,113 @@ crazyflies:
 
   - id: 1
     channel: 82
-    initialPosition: [7.8611, 4.6845, 0.5096]
+    initialPosition: [7.7642, 1.0908, 0.0033]
     type: defaultCF1
   - id: 2
     channel: 82
-    initialPosition: [7.6208, 4.6808, 0.5075]
+    initialPosition: [6.8930, 1.0932, 0.0025]
     type: defaultCF2
   - id: 3
     channel: 82
-    initialPosition: [6.1714, 4.6848, 0.4991]
+    initialPosition: [6.0590, 1.0870, 0.0008]
     type: defaultCF3
   - id: 4
     channel: 82
-    initialPosition: [5.9207, 4.6884, 0.4991]
+    initialPosition: [5.1965, 1.0968, -0.0022]
     type: defaultCF4
   - id: 5
     channel: 82
-    initialPosition: [4.4929, 4.7022, 0.5015]
+    initialPosition: [4.3792, 1.0953, 0.0039]
     type: defaultCF5
   - id: 6
     channel: 82
-    initialPosition: [4.2442, 4.6941, 0.5032]
+    initialPosition: [3.5241, 1.0963, 0.0023]
     type: defaultCF6
   - id: 7
     channel: 82
-    initialPosition: [2.8342, 4.6900, 0.4970]
+    initialPosition: [2.7182, 1.1008, 0.0047]
     type: defaultCF7
   - id: 8
     channel: 82
-    initialPosition: [2.5902, 4.6843, 0.4987]
+    initialPosition: [1.8331, 1.0972, 0.0035]
     type: defaultCF8
   - id: 9
     channel: 82
-    initialPosition: [1.1343, 4.6946, 0.5024]
+    initialPosition: [1.0022, 1.0989, 0.0072]
     type: defaultCF9
   - id: 10
     channel: 82
-    initialPosition: [0.9087, 4.6882, 0.5004]
+    initialPosition: [0.1496, 1.0942, 0.0038]
     type: defaultCF10
   - id: 11
     channel: 88
-    initialPosition: [-0.5734, 4.6871, 0.4834]
+    initialPosition: [-0.7286, 1.0905, 0.0047]
     type: defaultCF11
   - id: 12
     channel: 88
-    initialPosition: [-0.8119, 4.6827, 0.4834]
+    initialPosition: [-1.5315, 1.0959, 0.0037]
     type: defaultCF12
   - id: 13
     channel: 88
-    initialPosition: [-2.2318, 4.6809, 0.5042]
+    initialPosition: [-2.3604, 1.0936, 0.0058]
     type: defaultCF13
   - id: 14
     channel: 88
-    initialPosition: [-2.4549, 4.6770, 0.4987]
+    initialPosition: [-3.2702, 1.0914, 0.0105]
     type: defaultCF14
   - id: 15
     channel: 88
-    initialPosition: [7.8495, 3.2925, 0.5101]
+    initialPosition: [7.7697, -0.0253, 0.0060]
     type: defaultCF15
   - id: 16
     channel: 88
-    initialPosition: [7.6120, 3.2863, 0.5096]
+    initialPosition: [6.9007, -0.0205, 0.0042]
     type: defaultCF16
   - id: 17
     channel: 88
-    initialPosition: [6.1872, 3.2980, 0.4998]
+    initialPosition: [6.0516, -0.0212, 0.0056]
     type: defaultCF17
   - id: 18
     channel: 88
-    initialPosition: [5.9310, 3.2923, 0.4983]
+    initialPosition: [5.2007, -0.0250, 0.0070]
     type: defaultCF18
   - id: 19
     channel: 88
-    initialPosition: [4.4912, 3.2783, 0.4972]
+    initialPosition: [4.3685, -0.0229, 0.0027]
     type: defaultCF19
   - id: 20
     channel: 88
-    initialPosition: [4.2497, 3.2784, 0.5006]
+    initialPosition: [3.5693, -0.0200, 0.0041]
     type: defaultCF20
   - id: 21
     channel: 95
-    initialPosition: [2.8336, 3.3017, 0.4991]
+    initialPosition: [2.7082, -0.0274, 0.0067]
     type: defaultCF21
   - id: 22
     channel: 95
-    initialPosition: [2.5979, 3.2976, 0.4993]
+    initialPosition: [1.8496, -0.0190, 0.0061]
     type: defaultCF22
   - id: 23
     channel: 95
-    initialPosition: [1.1310, 3.2917, 0.5075]
+    initialPosition: [1.0016, -0.0264, 0.0029]
     type: defaultCF23
   - id: 24
     channel: 95
-    initialPosition: [0.8805, 3.2787, 0.5075]
+    initialPosition: [0.1419, -0.0259, 0.0037]
     type: defaultCF24
   - id: 25
     channel: 95
-    initialPosition: [-0.5690, 3.2775, 0.5051]
+    initialPosition: [-0.7381, -0.0199, 0.0048]
     type: defaultCF25
   - id: 26
     channel: 95
-    initialPosition: [-0.8030, 3.2735, 0.5050]
+    initialPosition: [-1.5368, -0.0205, 0.0081]
     type: defaultCF26
   - id: 27
     channel: 95
-    initialPosition: [-2.2438, 3.2892, 0.5121]
+    initialPosition: [-2.3715, -0.0262, 0.0089]
     type: defaultCF27
   - id: 28
     channel: 95
-    initialPosition: [-2.4802, 3.2837, 0.5134]
+    initialPosition: [-3.2906, -0.0224, 0.0106]
     type: defaultCF28

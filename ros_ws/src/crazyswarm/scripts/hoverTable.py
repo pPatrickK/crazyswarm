@@ -305,6 +305,31 @@ def group_2(swarmmover): #17 18 19 20
     swarmmover.land_by_id(z_land, [1,3,5,7,9,11,13], land_time)
     swarmmover.wait(land_time+0.5)
 
+def group_3(swarmmover): #17 18 19 20
+    z_start = 0.1
+    start_time = 2.0
+    z_land = 0.0
+    land_time = 2.0
+    z_movement = 0.1
+
+    # br [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    # fr [15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+    swarmmover.wait(10.5)
+    swarmmover.takeoff_by_id(z_start, [1,2,3,4,5,6,7,8,9,10,11,12,13,14], start_time)
+    swarmmover.takeoff_by_id(z_start, [15,16,17,18,19,20,21,22,23,24,25,26,27,28], start_time)
+    swarmmover.wait(start_time + 0.5)
+    swarmmover.move_by_id( [0.0, -2.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
+    swarmmover.move_by_id( [0.0, -2.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,27,28], 4.0)
+    swarmmover.wait(10.5)
+
+
+    swarmmover.move_by_id( [0.0, 0.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
+    swarmmover.move_by_id( [0.0, 0.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,27,28], 4.0)
+    swarmmover.wait(10.5)
+
+    swarmmover.land_by_id(z_land, [15,16,17,18,19,20,21,22,23,24,25,26,27,28], land_time)
+    swarmmover.land_by_id(z_land,[1,2,3,4,5,6,7,8,9,10,11,12,13,14], land_time)
+    swarmmover.wait(land_time+0.5)
 # def group_3_start(swarmmover): # 5 6 7 8
 #     swarmmover.takeoff_by_id(1.5, [5], 2.5)
 #     swarmmover.wait(0.5)
@@ -399,7 +424,7 @@ def main():
     # swarmmover.land_by_id(0.05, [1], 2.0)
     # move_all(swarmmover)
     # choreo(swarmmover) # 1, 2, 3 start, 4, 3 landet
-    group_2(swarmmover) # 1 komplett
+    group_3(swarmmover) # 1 komplett
     # group_2(swarmmover) #2 komplett
     # group_3(swarmmover) # 3 startet und landed
     #group_3_start(swarmmover) # 3 startet

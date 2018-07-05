@@ -886,7 +886,7 @@ public:
 private:
 
   // Sören Schellhoff flip detection
-  /*	
+  /*
   double rollFromQuaternion(const libmotioncapture::Object &rigidBody) {
     // https://en.wikipedia.org/wiki/Conversion_between_quaternions_and_Euler_angles#Quaternion_to_Euler_Angles_Conversion
     const auto sinr = 2.0 * (rigidBody.rotation().w() * rigidBody.rotation().x() + rigidBody.rotation().y() * rigidBody.rotation().z());
@@ -1601,7 +1601,7 @@ public:
       auto endIteration = std::chrono::high_resolution_clock::now();
       std::chrono::duration<double> elapsed = endIteration - startIteration;
       double elapsedSeconds = elapsed.count();
-      if (elapsedSeconds > 0.010) { //0.009
+      if (elapsedSeconds > 0.014) { //0.009
         ROS_WARN("Latency too high! Is %f s.", elapsedSeconds);
       }
 

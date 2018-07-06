@@ -223,10 +223,10 @@ def group_1(swarmmover): # 1 2 3 4
 
 
 
-    swarmmover.takeoff_by_id(z_start, [20,21,22,23,24,25,26,27,28,29], start_time)
+    swarmmover.takeoff_by_id(z_start, [20,21,22,23,24,25,26,28,29], start_time)
     swarmmover.wait(start_time + 0.5)
 
-    swarmmover.move_by_id( [-1.0, 0.0, z_movement], [20,21,22,23,24,25,26,27,28,29], 3.0)
+    swarmmover.move_by_id( [-1.0, 0.0, z_movement], [20,21,22,23,24,25,26,28,29], 3.0)
     swarmmover.wait(3.5)
 
 
@@ -245,10 +245,10 @@ def group_1(swarmmover): # 1 2 3 4
     swarmmover.land_by_id(z_land, [11,12,13,14,15,16,17,18,19], land_time)
     swarmmover.wait(3.5)
 
-    swarmmover.move_by_id( [0.0, 0.0, z_movement], [20,21,22,23,24,25,26,27,28,29], 3.0)
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], [20,21,22,23,24,25,26,28,29], 3.0)
     swarmmover.wait(3.5)
 
-    swarmmover.land_by_id(z_land, [20,21,22,23,24,25,26,27,28,29], land_time)
+    swarmmover.land_by_id(z_land, [20,21,22,23,24,25,26,28,29], land_time)
     swarmmover.wait(land_time + 0.5)
 
 def group_2(swarmmover): #17 18 19 20
@@ -314,17 +314,17 @@ def group_3(swarmmover): #17 18 19 20
 
     # br [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
     # fr [15,16,17,18,19,20,21,22,23,24,25,26,27,28]
-    swarmmover.wait(10.5)
-    swarmmover.takeoff_by_id(z_start, [1,2,3,4,5,6,7,8,9,10,11,12,13,14], start_time)
-    swarmmover.takeoff_by_id(z_start, [15,16,17,18,19,20,21,22,23,24,25,26,27,28], start_time)
-    swarmmover.wait(start_time + 0.5)
-    # swarmmover.move_by_id( [0.0, -2.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
-    # swarmmover.move_by_id( [0.0, -2.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,27,28], 4.0)
     # swarmmover.wait(10.5)
-    #
-    #
-    # swarmmover.move_by_id( [0.0, 0.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
-    # swarmmover.move_by_id( [0.0, 0.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,27,28], 4.0)
+    swarmmover.takeoff_by_id(z_start, [1,2,3,4,5,6,7,8,9,10,11,12,13,14], start_time)
+    swarmmover.takeoff_by_id(z_start, [15,16,17,18,19,20,21,22,23,24,25,26,29,28], start_time)
+    swarmmover.wait(start_time + 0.5)
+    swarmmover.move_by_id( [0.0, -2.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
+    swarmmover.move_by_id( [0.0, -2.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,29,28], 4.0)
+    swarmmover.wait(10.5)
+
+
+    swarmmover.move_by_id( [0.0, 0.0, 0.1], [1,2,3,4,5,6,7,8,9,10,11,12,13,14], 4.0)
+    swarmmover.move_by_id( [0.0, 0.0, 0.1], [15,16,17,18,19,20,21,22,23,24,25,26,29,28], 4.0)
     swarmmover.wait(10.5)
 
     swarmmover.land_by_id(z_land, [15,16,17,18,19,20,21,22,23,24,25,26,27,28], land_time)

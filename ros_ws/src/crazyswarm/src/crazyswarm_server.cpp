@@ -1226,7 +1226,7 @@ private:
   std::chrono::high_resolution_clock::time_point m_phaseStart;
 };
 
-// handles all Crazyflies
+// handles all CrazyfliesFrame
 class CrazyflieServer
 {
 public:
@@ -1279,7 +1279,7 @@ public:
     tSlow.join();
   }
 
-  void runFast()
+  void runFast() // die killer schleife
   {
 
     // std::vector<CrazyflieBroadcaster::externalPose> states(1);
@@ -1492,9 +1492,40 @@ public:
     uint32_t latencyCount = 0;
     std::vector<libmotioncapture::LatencyInfo> mocapLatency;
 
+    auto timeSinceLastSuccess = std::chrono::high_resolution_clock::now();
+
     while (ros::ok() && !m_isEmergency) {
       // Get a frame
+      //------------------------------------------------------------------------
+      // auto patrickTimeStart = std::chrono::high_resolution_clock::now();
+      // auto startMillis = std::chrono::duration_cast<std::chrono::milliseconds>(patrickTimeStart.time_since_epoch()).count();
+      // std::stringstream sstr2;
+      // sstr2 << "time before frame: " << startMillis << " s." << std::endl;
+      //ROS_WARN("%s", sstr2.str().c_str());
+      //ROS_WARN("bubu vorher";
+      //--- original shit ------------------------------------------------------
       mocap->waitForNextFrame();
+      //-- our stuff FLW -------------------------------------------------------
+      /*if(!mocap->waitForNextFrame()) { // in nonBlocking may allocation error
+      //if(!mocap->waitForNextFrameNonBlocking()) { // our own method
+        // error handling
+        const auto durationSinceLastSuccess = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - timeSinceLastSuccess).count();
+        if(durationSinceLastSuccess > 10) { // find best threshold empirically
+          ROS_WARN("SIR, PLEASE GO FUCK YOURSELF!!!");
+          m_isEmergency = true;
+        }
+      } else {
+        timeSinceLastSuccess = std::chrono::high_resolution_clock::now();
+      }*/
+      //------------------------------------------------------------------------
+      // auto patrickTimeEnd = std::chrono::high_resolution_clock::now();
+      // auto endMillis = std::chrono::duration_cast<std::chrono::milliseconds>(patrickTimeEnd.time_since_epoch()).count();
+      // std::stringstream sstr3;
+      // sstr3 << "time after frame: " << (endMillis-startMillis) << " s." << std::endl;
+      // ROS_WARN("%s", sstr2.str().c_str());
+      // ROS_WARN("%s", sstr3.str().c_str());
+      //ROS_WARN("bubu vorher");
+      //------------------------------------------------------------------------
 
       latencies.clear();
 

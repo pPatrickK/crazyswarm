@@ -104,7 +104,7 @@ crazyflies:
     channel: 88
     initialPosition: [-1.5368, -0.0205, 0.0081]
     type: defaultCF26
-  - id: 27
+  - id: 29
     channel: 88
     initialPosition: [-2.3715, -0.0262, 0.0089]
     type: defaultCF27

@@ -196,6 +196,7 @@ def group_1(swarmmover): # 1 2 3 4
     z_movement = 0.15
     # --------------------------------------------------------------------------
     # os.remove(output_filename)
+    idlist = [30,31]
     amax = 1.4
     vmax = 3.0
     timescale1 = 0.50#0.55
@@ -213,8 +214,8 @@ def group_1(swarmmover): # 1 2 3 4
     # cf2 = allcfs.crazyflies[1]
     # cf2.setGroupMask(0b00000010)
     # allcfs.startTrajectory(0, timescale=TIMESCALE, groupMask=0b00000001)
-    cf1 = swarmmover.allcfs.crazyfliesById[6]
-    cf2 = swarmmover.allcfs.crazyfliesById[18]
+    cf1 = swarmmover.allcfs.crazyfliesById[31]
+    cf2 = swarmmover.allcfs.crazyfliesById[30]
 
     # for cf in swarmmover.allcfs.crazyflies:
         # cf.uploadTrajectory(0, 0, traj1) # req.trajectoryId, req.pieceOffset, pieces
@@ -225,12 +226,12 @@ def group_1(swarmmover): # 1 2 3 4
     cf2.uploadTrajectory(0, 0, traj2)
     #allcfs.startTrajectory(0, timescale=TIMESCALE, groupMask=0b00000001)
     ## -------------------------------------------------------------------------
-    swarmmover.takeoff_by_id(z_start, [6,18,25,26], start_time)
+    swarmmover.takeoff_by_id(z_start, idlist, start_time)
     swarmmover.wait(start_time + 0.5)
 
 
-    swarmmover.move_absolute_by_id( [0.0, 0.0, z_movement], [6], 6.0)
-    swarmmover.move_absolute_by_id( [-0.3, -0.3, z_movement], [18], 6.0)
+    swarmmover.move_absolute_by_id( [0.0, 0.0, z_movement], [31], 1.0)
+    swarmmover.move_absolute_by_id( [-0.3, -0.3, z_movement], [30], 1.0)
 
     # swarmmover.move_absolute_by_id( [-0.4, 0.0, z_movement], [25], 4.0)
     # swarmmover.wait(0.5)
@@ -241,27 +242,27 @@ def group_1(swarmmover): # 1 2 3 4
     swarmmover.allcfs.startTrajectory(0, timescale2, groupMask=0b00000010)
     swarmmover.wait(traj1.duration * timescale2 + 0.5)
     #---------------------------------------------------------------------------
-    swarmmover.land_by_id(0.00, [6,18,25,26], 0.6)
+    swarmmover.land_by_id(0.00, idlist, 0.6)
     swarmmover.wait(0.65)
-    swarmmover.takeoff_by_id(0.04, [6,18,25,26], 0.2)
+    swarmmover.takeoff_by_id(0.04, idlist, 0.2)
     swarmmover.wait(0.25)
-    swarmmover.land_by_id(0.00, [6,18,25,26], 0.1)
+    swarmmover.land_by_id(0.00, idlist, 0.1)
     swarmmover.wait(0.15)
-    swarmmover.takeoff_by_id(0.04, [6,18,25,26], 0.2)
+    swarmmover.takeoff_by_id(0.04, idlist, 0.2)
     swarmmover.wait(0.25)
-    swarmmover.land_by_id(0.00, [6,18,25,26], 0.1)
+    swarmmover.land_by_id(0.00, idlist, 0.1)
     swarmmover.wait(0.15)
-    swarmmover.takeoff_by_id(0.04, [6,18,25,26], 0.2)
+    swarmmover.takeoff_by_id(0.04, idlist, 0.2)
     swarmmover.wait(0.25)
-    swarmmover.land_by_id(0.00, [6,18,25,26], 0.1)
+    swarmmover.land_by_id(0.00, idlist, 0.1)
     swarmmover.wait(0.15)
     #---------------------------------------------------------------------------
     # swarmmover.wait(10.5)
-    swarmmover.takeoff_by_id(0.03, [6,18,25,26], 1)
+    swarmmover.takeoff_by_id(0.03, idlist, 1)
     swarmmover.wait(1.5)
-    swarmmover.move_by_id( [0.0, 0.0, z_movement], [6,18,25,26], 3.0)
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], idlist, 3.0)
     swarmmover.wait(3.5)
-    swarmmover.land_by_id(z_land, [6,18,25,26], land_time)
+    swarmmover.land_by_id(z_land, idlist, land_time)
     swarmmover.wait(land_time + 0.5)
 
 def main():

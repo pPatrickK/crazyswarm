@@ -1094,8 +1094,8 @@ markerConfigurations:
 numDynamicsConfigurations: 1
 dynamicsConfigurations:
   "0":
-    maxXVelocity: 5.0 #2.0
-    maxYVelocity: 5.0 #2.0
+    maxXVelocity: 10.0 #2.0
+    maxYVelocity: 10.0 #2.0
     maxZVelocity: 8.0 #3.0
     maxPitchRate: 40.0 #20.0
     maxRollRate: 40.0 #20.0

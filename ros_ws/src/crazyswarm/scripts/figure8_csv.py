@@ -18,7 +18,7 @@ if __name__ == "__main__":
     TIMESCALE = 1.0
     for i in range(TRIALS):
         for cf in allcfs.crazyflies:
-            cf.uploadTrajectory(0, 0, traj1)
+            cf.uploadTrajectory(0, 0, traj1) # req.trajectoryId, req.pieceOffset, pieces
 
         allcfs.takeoff(targetHeight=z, duration=2.0)
         timeHelper.sleep(2.5)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
 
         allcfs.startTrajectory(0, timescale=TIMESCALE)
         timeHelper.sleep(traj1.duration * TIMESCALE + 2.0)
-        allcfs.startTrajectory(0, timescale=TIMESCALE, reverse=True)
+        allcfs.startTrajectory(0, timescale=TIMESCALE, reverse=True) # (trajectoryId, timescale, reversed, groupMask);
         timeHelper.sleep(traj1.duration * TIMESCALE + 2.0)
 
         allcfs.land(targetHeight=0.00, duration=2.0)

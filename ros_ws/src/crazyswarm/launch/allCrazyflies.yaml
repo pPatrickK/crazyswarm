@@ -2,128 +2,82 @@ crazyflies:
 
   - id: 1
     channel: 82
-    initialPosition: [7.8656, 4.6727, 0.5137]
+    initialPosition: [7.9510, 5.5062, 0.5709] #[7.9910, 5.6062, 0.5709]
     type: defaultCF1
   - id: 2
     channel: 82
-    initialPosition: [7.6731, 4.6764, 0.5117]
+    initialPosition: [7.5772, 5.5536, 0.5770] #[7.5772, 5.6036, 0.5770]
     type: defaultCF2
+
   - id: 3
     channel: 82
-    initialPosition: [6.1672, 4.6850, 0.4999]
+    initialPosition: [6.9224, 5.4814, 0.5739] #[6.9424, 5.5914, 0.5739]
     type: defaultCF3
   - id: 4
     channel: 82
-    initialPosition: [5.9563, 4.6918, 0.4981]
+    initialPosition: [6.5341, 5.5351, 0.5749] #[6.5341, 5.5951, 0.5749]
     type: defaultCF4
-  - id: 5
-    channel: 82
-    initialPosition: [4.4875, 4.6898, 0.5055]
-    type: defaultCF5
+
   - id: 6
     channel: 82
-    initialPosition: [4.2856, 4.6975, 0.5046]
+    initialPosition: [5.6820, 5.5673, 0.5818] #[5.7220, 5.5973, 0.5818]
     type: defaultCF6
-  - id: 7
-    channel: 82
-    initialPosition: [2.7852, 4.6781, 0.5017]
-    type: defaultCF7
   - id: 8
     channel: 82
-    initialPosition: [2.6222, 4.6808, 0.5015]
+    initialPosition: [5.3170, 5.5615, 0.5867] #[5.3070, 5.6015, 0.5867]
     type: defaultCF8
-  - id: 9
-    channel: 82
-    initialPosition: [1.1038, 4.6877, 0.5054]
-    type: defaultCF9
+
   - id: 10
     channel: 82
-    initialPosition: [0.9115, 4.6960, 0.5045]
+    initialPosition: [4.4901, 5.5406, 0.5794] #[4.5201, 5.6006, 0.5794]
     type: defaultCF10
-  - id: 11
-    channel: 82
-    initialPosition: [-0.6042, 4.6817, 0.4853]
-    type: defaultCF11
-  - id: 12
-    channel: 82
-    initialPosition: [-0.7929, 4.6882, 0.4844]
-    type: defaultCF12
-  - id: 13
-    channel: 82
-    initialPosition: [-2.2491, 4.6824, 0.5014]
-    type: defaultCF13
   - id: 14
     channel: 82
-    initialPosition: [-2.4367, 4.6896, 0.5050]
+    initialPosition: [4.1720, 5.5527, 0.5793] #[4.1220, 5.6027, 0.5793]
     type: defaultCF14
+
   - id: 15
     channel: 88
-    initialPosition: [7.8583, 3.2961, 0.5119]
+    initialPosition: [3.2400, 5.5476, 0.5662] #[3.2700, 5.6076, 0.5662]
     type: defaultCF15
   - id: 16
     channel: 88
-    initialPosition: [7.6376, 3.2988, 0.5114]
+    initialPosition: [2.8981, 5.4867, 0.5689] #[2.8581, 5.5967, 0.5689]
     type: defaultCF16
+
   - id: 17
     channel: 88
-    initialPosition: [6.1546, 3.2984, 0.5030]
+    initialPosition: [2.0, 5.5540, 0.5836] #[2.0596, 5.5940, 0.5836]
     type: defaultCF17
   - id: 18
     channel: 88
-    initialPosition: [5.9659, 3.3023, 0.5019]
+    initialPosition: [1.7040, 5.5420, 0.5809] #[1.6440, 5.6020, 0.5809]
     type: defaultCF18
-  - id: 19
-    channel: 88
-    initialPosition: [4.4524, 3.2868, 0.4979]
-    type: defaultCF19
+
   - id: 20
     channel: 88
-    initialPosition: [4.2759, 3.2858, 0.4989]
+    initialPosition: [0.8481, 5.5653, 0.5690] #[0.8481, 5.5953, 0.5690]
     type: defaultCF20
   - id: 21
     channel: 88
-    initialPosition: [2.8037, 3.3071, 0.5012]
+    initialPosition: [0.5376, 5.4952, 0.5715]   #[0.4376, 5.5952, 0.5715]
     type: defaultCF21
-  - id: 22
-    channel: 88
-    initialPosition: [2.6245, 3.3046, 0.5024]
-    type: defaultCF22
-  - id: 23
-    channel: 88
-    initialPosition: [1.0807, 3.2868, 0.5110]
-    type: defaultCF23
-  - id: 24
-    channel: 88
-    initialPosition: [0.9102, 3.2853, 0.5103]
-    type: defaultCF24
+
+  # - id: 23
+  #   channel: 88
+  #   initialPosition: [0.0, 0.0,0.0]   #[-0.7118, 5.5852, 0.5942]
+  #   type: defaultCF23
+
   - id: 25
     channel: 88
-    initialPosition: [-0.6284, 3.2782, 0.5078]
+    initialPosition: [-0.3384, 5.5289, 0.5920]  #[-0.3184, 5.5789, 0.5920]
     type: defaultCF25
   - id: 26
     channel: 88
-    initialPosition: [-0.8221, 3.2764, 0.5086]
+    initialPosition: [-0.5918, 5.5152, 0.5942]   #[-0.7118, 5.5852, 0.5942]
     type: defaultCF26
 
-  - id: 29
-    channel: 88
-    initialPosition: [-2.25, 3.2782, 0.5078]
-    type: defaultCF29
   - id: 28
     channel: 88
-    initialPosition: [-2.45, 3.2764, 0.5086]
+    initialPosition: [0.0, 0.0, 0.0]   #[-0.7118, 5.5852, 0.5942]
     type: defaultCF28
-
-  - id: 30
-    channel: 100
-    initialPosition: [-0.3, -0.3, 0.0]
-    type: defaultCF30
-  - id: 31
-    channel: 100
-    initialPosition: [0.0, 0.0, 0.0]
-    type: defaultCF31
-
-  - id: 32
-    channel: 100
-    initialPosition: [-4.04, 3.28, 0.50]
-    type: defaultCF32

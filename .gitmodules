@@ -20,7 +20,7 @@
 	branch=flw
 [submodule "ros_ws/src/externalDependencies/libobjecttracker"]
 	path = ros_ws/src/externalDependencies/libobjecttracker
-	url = https://github.com/USC-ACTLab/libobjecttracker
+	url = https://github.com/pPatrickK/libobjecttracker
 [submodule "ros_ws/src/externalDependencies/libmotioncapture"]
 	path = ros_ws/src/externalDependencies/libmotioncapture
 	url = https://github.com/pPatrickK/libmotioncapture.git

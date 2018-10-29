@@ -5,6 +5,7 @@ ros_ws/devel/
 *~
 *.mexa64
 # james's symlinks :)
+*.swp
 cfs.yaml
 firm
 client

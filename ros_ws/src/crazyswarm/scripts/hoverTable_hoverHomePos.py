@@ -193,71 +193,72 @@ class SwarmMover(object):
 
 def present(swarmmover): # 1 2 3 4
     z_land = 0.58
-    z_preLand = 0.1
-    land_time = 3.0
+    land_time = 2.0
     move_time = 9.0
     z_movement = 1.0
 
     swarmmover.move_by_id( [0.0, 0.0, z_movement], [8,14,15,17], move_time)
-    swarmmover.wait(0.0)
+    swarmmover.wait(3.0)
     swarmmover.move_by_id( [0.0, 0.0, z_movement], [6,10,16,18], move_time)
-    swarmmover.wait(0.0)
+    swarmmover.wait(3.0)
     swarmmover.move_by_id( [0.0, 0.0, z_movement], [2,4,20,25], move_time)
-    swarmmover.wait(0.0)
+    swarmmover.wait(3.0)
     swarmmover.move_by_id( [0.0, 0.0, z_movement], [1,3,21,26], move_time)
-    swarmmover.wait(9.0)
-
-    swarmmover.move_by_id( [0.0, 0.0, z_preLand], [8,14,15,17], 6)
-    swarmmover.wait(0.0)
-    swarmmover.move_by_id( [0.0, 0.0, z_preLand], [6,10,16,18], 6)
-    swarmmover.wait(0.0)
-    swarmmover.move_by_id( [0.0, 0.0, z_preLand], [2,4,20,25], 6)
-    swarmmover.wait(0.0)
-    swarmmover.move_by_id( [0.0, 0.0, z_preLand], [1,3,21,26], 6)
-    swarmmover.wait(7.0)
+    swarmmover.wait(0.5)
 
     swarmmover.land_by_id(z_land, [8,14,15,17], land_time)
-    swarmmover.wait(0)
+    swarmmover.wait(3.0)
     swarmmover.land_by_id(z_land, [6,10,16,18], land_time)
-    swarmmover.wait(0)
+    swarmmover.wait(3.0)
     swarmmover.land_by_id(z_land, [2,4,20,25], land_time)
-    swarmmover.wait(0)
+    swarmmover.wait(3.0)
     swarmmover.land_by_id(z_land, [1,3,21,26], land_time)
     swarmmover.wait(2.5)
 
 
-# def test(swarmmover):
-#     z_start = 1.0
-#     start_time = 2.0
-#     z_movement = 1.5
-#
-#     swarmmover.takeoff_by_id(z_start, [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26], start_time)
-#     swarmmover.wait(start_time + 0.5)
-#
-#     swarmmover.move_absolute_by_id( [5.4, -2.4, z_movement], [1], 3.0)
-#     swarmmover.move_absolute_by_id( [5.4, -1.2, z_movement], [2], 3.0)
-#     swarmmover.move_absolute_by_id( [4.2, -2.4, z_movement], [3], 3.0)
-#     swarmmover.move_absolute_by_id( [4.2, -1.2, z_movement], [4], 3.0)
-#     swarmmover.move_absolute_by_id( [5.4, 0.0, z_movement], [6], 3.0)
-#     swarmmover.move_absolute_by_id( [5.4, 1.2, z_movement], [8], 3.0)
-#     swarmmover.move_absolute_by_id( [4.2, 0.0, z_movement], [10], 3.0)
-#     swarmmover.move_absolute_by_id( [4.2, 1.2, z_movement], [14], 3.0)
-#     swarmmover.move_absolute_by_id( [3.0, 1.2, z_movement], [15], 3.0)
-#     swarmmover.move_absolute_by_id( [3.0, 0.0, z_movement], [16], 3.0)
-#     swarmmover.move_absolute_by_id( [1.8, 1.2, z_movement], [17], 3.0)
-#     swarmmover.move_absolute_by_id( [1.8, 0.0, z_movement], [18], 3.0)
-#     swarmmover.move_absolute_by_id( [3.0, -1.2, z_movement], [20], 3.0)
-#     swarmmover.move_absolute_by_id( [3.0, -2.4, z_movement], [21], 3.0)
-#     swarmmover.move_absolute_by_id( [1.8, -1.2, z_movement], [25], 3.0)
-#     swarmmover.move_absolute_by_id( [1.8, -2.4, z_movement], [26], 3.0)
-#     swarmmover.wait(7.5)
+def homepos(swarmmover): # 1 2 3 4
+    z_land = 0.58
+    land_time = 2.0
+    move_time = 9.0
+    z_movement = 1.0
+
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], [8,14,15,17], move_time)
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], [6,10,16,18], move_time)
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], [2,4,20,25], move_time)
+    swarmmover.move_by_id( [0.0, 0.0, z_movement], [1,3,21,26], move_time)
+
+def test(swarmmover):
+    z_start = 1.0
+    start_time = 2.0
+    z_movement = 1.5
+
+    swarmmover.takeoff_by_id(z_start, [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26], start_time)
+    swarmmover.wait(start_time + 0.5)
+
+    swarmmover.move_absolute_by_id( [5.4, -2.4, z_movement], [1], 3.0)
+    swarmmover.move_absolute_by_id( [5.4, -1.2, z_movement], [2], 3.0)
+    swarmmover.move_absolute_by_id( [4.2, -2.4, z_movement], [3], 3.0)
+    swarmmover.move_absolute_by_id( [4.2, -1.2, z_movement], [4], 3.0)
+    swarmmover.move_absolute_by_id( [5.4, 0.0, z_movement], [6], 3.0)
+    swarmmover.move_absolute_by_id( [5.4, 1.2, z_movement], [8], 3.0)
+    swarmmover.move_absolute_by_id( [4.2, 0.0, z_movement], [10], 3.0)
+    swarmmover.move_absolute_by_id( [4.2, 1.2, z_movement], [14], 3.0)
+    swarmmover.move_absolute_by_id( [3.0, 1.2, z_movement], [15], 3.0)
+    swarmmover.move_absolute_by_id( [3.0, 0.0, z_movement], [16], 3.0)
+    swarmmover.move_absolute_by_id( [1.8, 1.2, z_movement], [17], 3.0)
+    swarmmover.move_absolute_by_id( [1.8, 0.0, z_movement], [18], 3.0)
+    swarmmover.move_absolute_by_id( [3.0, -1.2, z_movement], [20], 3.0)
+    swarmmover.move_absolute_by_id( [3.0, -2.4, z_movement], [21], 3.0)
+    swarmmover.move_absolute_by_id( [1.8, -1.2, z_movement], [25], 3.0)
+    swarmmover.move_absolute_by_id( [1.8, -2.4, z_movement], [26], 3.0)
+    swarmmover.wait(7.5)
 
 
 
 def main():
     swarmmover = SwarmMover()
     #test(swarmmover)
-    present(swarmmover)
+    homepos(swarmmover)
 
 if __name__ == "__main__":
     main()

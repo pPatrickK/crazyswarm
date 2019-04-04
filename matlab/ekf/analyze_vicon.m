@@ -14,5 +14,3 @@ function analyze_vicon(pos)
 
     hist(deltas,max(unique_deltas)-min(unique_deltas)+1);
 end
-
-// test

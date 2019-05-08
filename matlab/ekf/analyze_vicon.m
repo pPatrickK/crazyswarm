@@ -11,6 +11,6 @@ function analyze_vicon(pos)
 
 	deltas = diff(changes);
 	unique_deltas = unique(deltas)
-    
+
     hist(deltas,max(unique_deltas)-min(unique_deltas)+1);
 end

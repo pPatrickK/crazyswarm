@@ -66,6 +66,6 @@ crazyflies:
     type: defaultCF26
 
   - id: 28
-    channel: 88
+    channel: 80
     initialPosition: [0.0, 0.0, 0.0]   #[-0.7118, 5.5852, 0.5942]
     type: defaultCF28

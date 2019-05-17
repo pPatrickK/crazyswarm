@@ -23,7 +23,7 @@
           enHighLevel: 1
         stabilizer:
           estimator: 3 # 1: complementary, 2: kalman, 3: kalmanUSC (only crazyswarm firmware)
-          controller: 1 # 1: PID, 2: mellinger
+          controller: 2 # 1: PID, 2: mellinger
         ring:
           effect: 14 # 6: double spinner, 7: solid color, 14: packetRate
           solidBlue: 255 # if set to solid color
@@ -39,8 +39,8 @@
         #  acc_var_xyz: 2.4e-3 # 2.4e-3
       # tracking
       motion_capture_type: "vicon" # one of vicon,optitrack
-      object_tracking_type: "motionCapture" # one of motionCapture,libobjecttracker
-      vicon_host_name: "192.168.2.221:801" # "192.168.2.212:801" # "192.168.2.182:801"
+      object_tracking_type: "libobjecttracker" # one of motionCapture,libobjecttracker
+      vicon_host_name: "192.168.2.221:801" # "192.168.2.227:801" # "192.168.2.212:801" # "192.168.2.182:801"
       # optitrack_local_ip: "localhost"
       # optitrack_server_ip: "optitrack"
       save_point_clouds: ~/pointCloud.ot

@@ -11,12 +11,20 @@ if __name__ == "__main__":
     allcfs = swarm.allcfs
 
     #constants
-    ALTITUDE = 3
-    XMIN = -4.5
-    YMIN = -3.5
+    x=8
+    y=3
+    # ALTITUDE = 3
+    # XMIN = -4.5
+    # YMIN = -3.5
+    # XMAX = 7.5
+    # YMAX = 5
+    # DISTANCE = 2# distance between 2 drones
+    ALTITUDE = 0.5
+    XMIN = 0
+    YMIN = -3
     XMAX = 7.5
     YMAX = 5
-    DISTANCE = 2# distance between 2 drones
+    DISTANCE = 1.5# distance between 2 drones
 
     iter = 0
     cfs = []
@@ -47,13 +55,12 @@ if __name__ == "__main__":
     timeHelper.sleep(8.0)
 
 
-    #
-
 
     # fly home
     for cf in cfs:
         pos = np.array(cf.initialPosition) + np.array([0, 0.0, 0.4])
         cf.goTo(pos, 0, 6.0)
-    timeHelper.sleep(10.0)
+    timeHelper.sleep(8.0)
 
     allcfs.land(targetHeight=0.6, duration=4.0)
+    timeHelper.sleep(4.0)

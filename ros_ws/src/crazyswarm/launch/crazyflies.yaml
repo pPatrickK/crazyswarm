@@ -1,65 +1,113 @@
 crazyflies:
 - channel: 82
   id: 1
-  initialPosition: [7.9689, 5.6085, 0.5716]
+  initialPosition:
+  - 8.5411
+  - 4.1439
+  - 0.5995
   type: defaultCF1
 - channel: 82
   id: 2
-  initialPosition: [7.6073, 5.6044, 0.5764]
+  initialPosition:
+  - 8.1692
+  - 4.1198
+  - 0.6009
   type: defaultCF2
 - channel: 82
   id: 3
-  initialPosition: [6.9131, 5.5886, 0.5836]
+  initialPosition:
+  - 7.3571
+  - 4.1517
+  - 0.5987
   type: defaultCF3
 - channel: 82
   id: 4
-  initialPosition: [6.5442, 5.5935, 0.5845]
+  initialPosition:
+  - 6.9539
+  - 4.1569
+  - 0.5972
   type: defaultCF4
-- channel: 82
+- channel: 85
   id: 6
-  initialPosition: [5.6864, 5.5969, 0.5862]
+  initialPosition:
+  - 6.0558
+  - 4.1325
+  - 0.5938
   type: defaultCF6
-- channel: 82
+- channel: 85
   id: 8
-  initialPosition: [5.3253, 5.5983, 0.5945]
+  initialPosition:
+  - 5.6493
+  - 4.1323
+  - 0.5915
   type: defaultCF8
-- channel: 82
+- channel: 85
   id: 10
-  initialPosition: [4.5098, 5.5922, 0.5874]
+  initialPosition:
+  - 4.809
+  - 4.1221
+  - 0.5976
   type: defaultCF10
-- channel: 82
+- channel: 85
   id: 14
-  initialPosition: [4.1256, 5.5928, 0.5848]
+  initialPosition:
+  - 4.4241
+  - 4.1136
+  - 0.596
   type: defaultCF14
 - channel: 88
   id: 15
-  initialPosition: [3.2241, 5.5952, 0.5715]
+  initialPosition:
+  - 3.5466
+  - 4.1218
+  - 0.5955
   type: defaultCF15
 - channel: 88
   id: 16
-  initialPosition: [2.8685, 5.5936, 0.572]
+  initialPosition:
+  - 3.1616
+  - 4.1338
+  - 0.5999
   type: defaultCF16
 - channel: 88
   id: 17
-  initialPosition: [2.044, 5.5994, 0.5872]
+  initialPosition:
+  - 2.2084
+  - 4.1703
+  - 0.6085
   type: defaultCF17
 - channel: 88
   id: 18
-  initialPosition: [1.6834, 5.5971, 0.5856]
+  initialPosition:
+  - 1.8564
+  - 4.1734
+  - 0.6112
   type: defaultCF18
-- channel: 88
+- channel: 91
   id: 20
-  initialPosition: [0.8342, 5.6009, 0.5743]
+  initialPosition:
+  - 0.9212
+  - 4.2042
+  - 0.5987
   type: defaultCF20
-- channel: 88
+- channel: 91
   id: 21
-  initialPosition: [0.4619, 5.6029, 0.5689]
+  initialPosition:
+  - 0.5664
+  - 4.1939
+  - 0.5971
   type: defaultCF21
-- channel: 88
+- channel: 91
   id: 25
-  initialPosition: [-0.3206, 5.5924, 0.5971]
+  initialPosition:
+  - -0.3637
+  - 4.218
+  - 0.6088
   type: defaultCF25
-- channel: 88
+- channel: 91
   id: 26
-  initialPosition: [-0.6855, 5.5929, 0.5979]
+  initialPosition:
+  - -0.7357
+  - 4.2232
+  - 0.6127
   type: defaultCF26

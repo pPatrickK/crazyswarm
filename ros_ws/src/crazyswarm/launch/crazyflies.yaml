@@ -1,4 +1,5 @@
 crazyflies:
+<<<<<<< HEAD
 - channel: 82
   id: 1
   initialPosition: [7.9689, 5.6085, 0.5716]
@@ -63,3 +64,12 @@ crazyflies:
   id: 26
   initialPosition: [-0.6855, 5.5929, 0.5979]
   type: defaultCF26
+=======
+- channel: 100
+  id: 32
+  initialPosition:
+  - 0.0
+  - 0.0
+  - 0.0
+  type: defaultCF32
+>>>>>>> f2f46811c0427827c38e5b3255e10c4a599b83b0

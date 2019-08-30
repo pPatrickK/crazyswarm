@@ -21,7 +21,7 @@
 [submodule "ros_ws/src/externalDependencies/libobjecttracker"]
 	path = ros_ws/src/externalDependencies/libobjecttracker
 	url = https://github.com/pPatrickK/libobjecttracker
-	branch = flw
+	branch = optimiseTracking
 [submodule "ros_ws/src/externalDependencies/libmotioncapture"]
 	path = ros_ws/src/externalDependencies/libmotioncapture
 	url = https://github.com/pPatrickK/libmotioncapture.git

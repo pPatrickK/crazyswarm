@@ -23,7 +23,7 @@ if __name__ == "__main__":
     iter = 0
     cfs = []
     # [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]
-    for id in [6,8,10,14]:
+    for id in [6,8,10,14,15,16,17,18,20]:
         cfs.append(allcfs.crazyfliesById[id])
         iter = iter + 1
 
@@ -84,3 +84,4 @@ if __name__ == "__main__":
     timeHelper.sleep(5.0)
 
     allcfs.land(targetHeight=0.6, duration=4.0)
+    timeHelper.sleep(5.0)

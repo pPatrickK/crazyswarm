@@ -23,7 +23,7 @@ if __name__ == "__main__":
     iter = 0
     cfs = []
     # [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]
-    for id in [6,8,10,14,15,16,17,18,20]:
+    for id in [1,3,4,6,8,10,14,15,17]:
         cfs.append(allcfs.crazyfliesById[id])
         iter = iter + 1
 

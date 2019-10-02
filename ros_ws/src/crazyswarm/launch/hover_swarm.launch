@@ -34,7 +34,7 @@
       #  ext_var_xy: 1.5e-7 # 1e-7 # 1.5e-7
         #  ext_var_vel: 2e-4 # 2e-4
         #  ext_var_q: 4.5e-3 # 2e-3 # 4.5e-3
-        #  gyro_var_xy: 0.2e-2 # 0.2e-4
+        #  gyro_var_xy: 0.2e-2 # 0.2e-4l
         #  gyro_var_z: 0.2e-2 # 0.2e-4
         #  acc_var_xyz: 2.4e-3 # 2.4e-3
       # tracking

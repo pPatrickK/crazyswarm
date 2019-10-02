@@ -12,31 +12,29 @@ if __name__ == "__main__":
 
 
     #constants
-    DISTANCE = 1 # in meter
+    DISTANCE = 0.8 # in meter
     ALPHA = np.pi/4 # angle per secound
     ROTATIONSTEPS = 8 # Number of Rotations
     HEIGHT_MAX = 1
     HEIGHT_MIN = 0.4
-
+    offset_x = 0
+    offset_y = -1
 
 
     iter = 0
     cfs = []
-    # [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]
-    for id in [1,3,4,6,8,10,14,15,17]:
+    # [1,3,4,6,8,10,14,15,17]
+    for id in [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]:
         cfs.append(allcfs.crazyfliesById[id])
         iter = iter + 1
 
-    #takeoff
-    for cf in cfs:
-        cf.takeoff(targetHeight=1.0, duration=2.0)
-    timeHelper.sleep(2.0)
+
 
     #fly to the center of the hall
     drone_number=0
     for iter_y in range(0,int(np.sqrt(iter))):
         for iter_x in range(0,int(np.sqrt(iter))):
-            pos = np.array([DISTANCE*(1.5-iter_x), DISTANCE*(iter_y-1.5), HEIGHT_MAX])
+            pos = np.array([DISTANCE*(1.5+offset_x-iter_x), DISTANCE*(iter_y+offset_y-1.5), HEIGHT_MAX])
             cfs[drone_number].goTo(pos, 0, 6.0)
             drone_number += 1
         timeHelper.sleep(0.5)
@@ -52,9 +50,10 @@ if __name__ == "__main__":
     RZ = np.matrix([[np.cos(ALPHA),-np.sin(ALPHA),0],[np.sin(ALPHA),np.cos(ALPHA),0],[0,0,1]])
     for i in range(0,ROTATIONSTEPS):
         for cf in cfs:
-            TEMPpos = RZ*np.array(cf.position()).reshape((3,1))
+            TEMPpos = RZ*np.array(cf.position()-[offset_x, offset_y, 0]).reshape((3,1))
             pos = np.asarray(np.transpose(TEMPpos))
             pos = pos[0]
+            pos = pos+[offset_x, offset_y, 0]
             cf.goTo(pos, 0,2.0)
         timeHelper.sleep(2.0)
     timeHelper.sleep(2.0)

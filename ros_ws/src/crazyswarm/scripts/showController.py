@@ -43,7 +43,7 @@ cfs = []
 #for photoshooting
 # cf32 = allcfs.crazyfliesById[32]
 #
-for id in [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]:
+for id in [1,3]:#2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]:
     cfs.append(allcfs.crazyfliesById[id])
     iter = iter + 1
 n = len(cfs)
@@ -105,7 +105,7 @@ def droneSpiral():
     k = 0
     k1 = 0
     k2 = 0
-    for i in [2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1]:
+    for i,_ in zip([2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1],cfs):
         if i in [2,  8,  10,   15,   13,   7,  5,  0]:
             cpos = mPoint + np.array([r_s*np.cos(alpha[k]), r_s*np.sin(alpha[k]), height1[k1]])
             k1 = k1 + 1
@@ -137,7 +137,7 @@ def droneSpiral():
         k1 = 0
         k2 = 0
         k = 0
-        for i in [2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1]:
+        for i,_ in zip([2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1],cfs):
             if i in [2,  8,  10,   15,   13,   7,  5,  0]:
                 cpos = mPoint + np.array([r_s*np.cos(alpha[k]+beta), r_s*np.sin(alpha[k]+beta), height1[k1]])
                 k1 = k1 + 1
@@ -155,7 +155,7 @@ def droneSpiral():
 def droneAtomium():
 # fly in circle
     k = 0
-    for i in [2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1]:
+    for i,_ in zip([2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1],cfs):
         x = r_a*np.cos(alpha[k])
         y = r_a*np.sin(alpha[k])
         if i in [2,8,10,15,13,7,5,0]:
@@ -171,7 +171,7 @@ def droneAtomium():
     for beta in np.linspace(0,2*np.pi*turns,20*turns):
         start = time.time()
         k = 0
-        for i in [2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1]:
+        for i,_ in zip([2,3,8,9,10,11,15,14,13,12,7,6,5,4,0,1],cfs):
             x = r_a*np.cos(alpha[k]+beta)
             y = r_a*np.sin(alpha[k]+beta)
             if i in [2,8,10,15,13,7,5,0]:

@@ -36,8 +36,9 @@ if __name__ == "__main__":
     cfs = []
     # [1,3,4,6,8,10,14,15,17]
     # [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26]
+
     iter = 0
-    for id in [1,3,4,6,8,10,14,15,17,18,20,21,25,26]:
+    for id in [1,2,3,4,6,8,10,14,15,16,17,18,20,21,25,26,5,7,9,11,12,13,19,22,23,24,27,28,29,30,31,32]:
         cfs.append(allcfs.crazyfliesById[id])
         iter += 1
 
@@ -66,7 +67,8 @@ if __name__ == "__main__":
     #     timeHelper.sleep(1)
     # timeHelper.sleep(12.0)
 
-    for cf in cfs:
+
+    for cf,i in zip(cfs,range(iter)):
         #fly in parabel
         x = cf.position()[0]
         y = -0.2*x**2+0.8*x+2

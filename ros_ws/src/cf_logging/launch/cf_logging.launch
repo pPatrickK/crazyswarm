@@ -1,0 +1,4 @@
+<launch>
+<node pkg="cf_logging" type="log_data.py" name="log_data" output="screen">
+</node>
+</launch>

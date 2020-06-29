@@ -17,8 +17,8 @@ import paho.mqtt.client as paho
 
 #defines
 TF_TOPIC = 'tf'
-MQTT_BROKER = '129.217.152.1' #'192.168.2.189'
-MQTT_PORT = '8883' #'1883'
+MQTT_BROKER = '192.168.2.9' #'192.168.2.189'
+MQTT_PORT = '1883' #'1883'
 MQTT_TOPIC = 'crazyflie/positions'
 
 #prototype test

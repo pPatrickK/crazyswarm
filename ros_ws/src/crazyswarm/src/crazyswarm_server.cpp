@@ -1539,6 +1539,24 @@ public:
       for (const auto& item : mocapLatency) {
         viconLatency += item.value();
       }
+      // debug out by FLW PatrickK
+      /*std::stringstream sstr;
+      sstr << "Latency [1ms,50ms] "<<viconLatency<<": |";
+      for (int k = 1;k<=50;k++) {
+        if(k>viconLatency*1000.0){
+          sstr << " " ;
+        }
+        else{
+          sstr << "#" ;
+        }
+        if (k%10==0){
+          sstr <<"|";
+        }
+
+      }
+      sstr << "|"<< std::endl;
+      ROS_WARN("%s", sstr.str().c_str());*/
+      //
       if (viconLatency > 0.035) {
         std::stringstream sstr;
         sstr << "VICON Latency high: " << viconLatency << " s." << std::endl;

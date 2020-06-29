@@ -1,5 +1,65 @@
 crazyflies:
+- channel: 82
+  id: 1
+  initialPosition: [6.5643, 3.8755, 0.0123]
+  type: defaultCF1
+- channel: 82
+  id: 2
+  initialPosition: [5.7795, 3.8824, 0.0109]
+  type: defaultCF2
+- channel: 82
+  id: 3
+  initialPosition: [4.9842, 3.8771, 0.0119]
+  type: defaultCF3
+- channel: 82
+  id: 4
+  initialPosition: [4.1692, 3.8741, 0.0103]
+  type: defaultCF4
+- channel: 85
+  id: 6
+  initialPosition: [3.3826, 3.8748, 0.0126]
+  type: defaultCF6
+- channel: 85
+  id: 8
+  initialPosition: [2.5864, 3.8755, 0.0124]
+  type: defaultCF8
+- channel: 85
+  id: 10
+  initialPosition: [1.8055, 3.8764, 0.0163]
+  type: defaultCF10
+- channel: 85
+  id: 14
+  initialPosition: [0.9993, 3.8839, 0.0164]
+  type: defaultCF14
 - channel: 88
-  id: 28
-  initialPosition: [0.0, 0.0, 0.0]
-  type: defaultCF28
+  id: 15
+  initialPosition: [0.206, 3.8748, 0.0166]
+  type: defaultCF15
+- channel: 88
+  id: 16
+  initialPosition: [-0.5949, 3.8738, 0.0134]
+  type: defaultCF16
+- channel: 88
+  id: 17
+  initialPosition: [-1.4021, 3.8738, 0.0134]
+  type: defaultCF17
+- channel: 88
+  id: 18
+  initialPosition: [-2.2005, 3.8824, 0.0182]
+  type: defaultCF18
+- channel: 91
+  id: 20
+  initialPosition: [-2.9887, 3.8791, 0.0157]
+  type: defaultCF20
+- channel: 91
+  id: 21
+  initialPosition: [-3.7827, 3.8787, 0.0177]
+  type: defaultCF21
+- channel: 91
+  id: 25
+  initialPosition: [-4.5944, 3.8796, 0.0183]
+  type: defaultCF25
+- channel: 91
+  id: 26
+  initialPosition: [-5.3816, 3.8767, 0.0184]
+  type: defaultCF26

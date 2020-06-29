@@ -1887,8 +1887,13 @@ private:
   // ros::CallbackQueue m_slowQueue;
 };
 
+
 int main(int argc, char **argv)
 {
+  //For debugging PCL
+  pcl::console::setVerbosityLevel(pcl::console::VERBOSITY_LEVEL::L_ERROR);
+
+
   // raise(SIGSTOP);
 
   ros::init(argc, argv, "crazyflie_server");

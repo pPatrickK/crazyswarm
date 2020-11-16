@@ -5,7 +5,7 @@
 [submodule "crazyflie-lib-python"]
 	path = crazyflie-lib-python
 	url = https://github.com/pPatrickK/crazyflie-lib-python.git
-	branch = flw
+	branch = bldc_drone
 [submodule "crazyflie-clients-python"]
 	path = crazyflie-clients-python
 	url = https://github.com/bitcraze/crazyflie-clients-python.git

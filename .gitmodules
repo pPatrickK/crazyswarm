@@ -1,7 +1,7 @@
 [submodule "crazyflie-firmware"]
 	path = crazyflie-firmware
 	url = https://github.com/pPatrickK/crazyflie-firmware.git
-	branch = flw
+	branch = bldc_drone
 [submodule "crazyflie-lib-python"]
 	path = crazyflie-lib-python
 	url = https://github.com/pPatrickK/crazyflie-lib-python.git

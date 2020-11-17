@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 #include <ros/ros.h>
 
@@ -11,6 +12,12 @@
 #endif
 #ifdef ENABLE_PHASESPACE
 #include <libmotioncapture/phasespace.h>
+#endif
+#ifdef ENABLE_QUALISYS
+#include <libmotioncapture/qualisys.h>
+#endif
+#ifdef ENABLE_VRPN
+#include <libmotioncapture/vrpn.h>
 #endif
 
 int main(int argc, char **argv)
@@ -33,18 +40,16 @@ int main(int argc, char **argv)
     std::string hostName;
     nl.getParam("vicon_host_name", hostName);
     mocap = new libmotioncapture::MotionCaptureVicon(hostName,
-      /*enableObjects*/ false,
+      /*enableObjects*/ true,
       /*enablePointcloud*/ true);
   }
 #endif
 #ifdef ENABLE_OPTITRACK
   else if (motionCaptureType == "optitrack")
   {
-    std::string localIP;
-    std::string serverIP;
-    nl.getParam("optitrack_local_ip", localIP);
-    nl.getParam("optitrack_server_ip", serverIP);
-    mocap = new libmotioncapture::MotionCaptureOptitrack(localIP, serverIP);
+    std::string hostName;
+    nl.getParam("optitrack_host_name", hostName);
+    mocap = new libmotioncapture::MotionCaptureOptitrack(hostName);
   }
 #endif
 #ifdef ENABLE_PHASESPACE
@@ -59,11 +64,33 @@ int main(int argc, char **argv)
     mocap = new libmotioncapture::MotionCapturePhasespace(ip, numMarkers, cfs);
   }
 #endif
+#ifdef ENABLE_QUALISYS
+  else if (motionCaptureType == "qualisys")
+  {
+    std::string hostname;
+    int port;
+    nl.getParam("qualisys_host_name", hostname);
+    nl.getParam("qualisys_base_port", port);
+    mocap = new libmotioncapture::MotionCaptureQualisys(hostname, port,
+      /*enableObjects*/ true,
+      /*enablePointcloud*/ true);
+  }
+#endif
+#ifdef ENABLE_VRPN
+  else if (motionCaptureType == "vrpn")
+  {
+    std::string hostname;
+    int port;
+    nl.getParam("vrpn_host_name", hostname);
+    mocap = new libmotioncapture::MotionCaptureVrpn(hostname);
+  }
+#endif
   else {
     throw std::runtime_error("Unknown motion capture type!");
   }
 
   pcl::PointCloud<pcl::PointXYZ>::Ptr markers(new pcl::PointCloud<pcl::PointXYZ>);
+  std::vector<libmotioncapture::Object> objects;
 
   for (size_t frameId = 0; ros::ok(); ++frameId) {
     std::cout << "frame " << frameId << ":" << std::endl;
@@ -76,6 +103,25 @@ int main(int argc, char **argv)
     for (size_t i = 0; i < markers->size(); ++i) {
       const pcl::PointXYZ& point = markers->at(i);
       std::cout << "      \"" << i << "\": [" << point.x << "," << point.y << "," << point.z << "]" << std::endl;
+    }
+
+    if (mocap->supportsObjectTracking()) {
+      mocap->getObjects(objects);
+
+      std::cout << "    objects:" << std::endl;
+
+      for (auto const& object: objects) {
+        std::cout << "      \"" << object.name() << "\":" << std::endl;
+        std::cout << "         occluded: " << object.occluded() << std::endl;
+
+        if (object.occluded() == false) {
+          Eigen::Vector3f position = object.position();
+          Eigen::Quaternionf rotation = object.rotation();
+          std::cout << "         position: [" << position(0) << ", " << position(1) << ", " << position(2) << "]" << std::endl;
+          std::cout << "         rotation: [" << rotation.w() << ", " << rotation.vec()(0) << ", "
+                                              << rotation.vec()(1) << ", " << rotation.vec()(2) << "]" << std::endl;
+        }
+      }
     }
 
 

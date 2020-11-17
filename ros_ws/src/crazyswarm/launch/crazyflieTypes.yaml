@@ -1,10 +1,9 @@
-
 crazyflieTypes:
   default:
     bigQuad: False
     batteryVoltageWarning: 3.8  # V
     batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 0
+    markerConfiguration: 0 # change to 3 for single marker tracking
     dynamicsConfiguration: 0
     firmwareParams:
       ctrlMel:
@@ -25,882 +24,117 @@ crazyflieTypes:
         i_range_z: 0.4
         mass: 0.032
         massThrust: 132000
-  defaultCF1:
+  defaultSingleMarker:
     bigQuad: False
     batteryVoltageWarning: 3.8  # V
     batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 3 # changed to 3 for single marker tracking
+    dynamicsConfiguration: 0
+    firmwareParams:
+      kalman:
+        pNAcc_xy: 4.0 # default 0.5
+        pNAcc_z: 8.0 # default 1.0
+        mNGyro_rollpitch: 0.2 # default 0.1
+        mNGyro_yaw: 0.1 # default 0.1
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  CF21SingleMarker:
+    bigQuad: False
+    batteryVoltageWarning: 3.8  # V
+    batteryVoltateCritical: 3.7 # V
+    markerConfiguration: 3 # changed to 3 for single marker tracking
+    dynamicsConfiguration: 0
+    firmwareParams:
+      kalman:
+        pNAcc_xy: 1.0 # default 0.5
+        pNAcc_z: 2.0 # default 1.0
+        mNGyro_rollpitch: 0.1 # default 0.1
+        mNGyro_yaw: 0.1 # default 0.1
+      ctrlMel:
+        kp_xy: 0.4 #0.6 # p for position
+        kd_xy: 0.2 # 0.35 # d for position
+        ki_xy: 0.05
+        i_range_xy: 2.0
+        kR_xy: 70000 # p for attitude
+        kw_xy: 20000 # d for attitude
+        kR_z: 60000 # 70000 # p for yaw
+        kw_z: 12000 # 30000  # d for yaw
+        ki_m_z: 500 #0 #20000     # i for yaw
+        i_range_m_z: 1500 # i range for yaw
+        kd_omega_rp: 200 # roll and pitch angular velocity d gain
+        kp_z: 1.25
+        kd_z: 0.4
+        ki_z: 0.05
+        i_range_z: 0.4
+        mass: 0.032
+        massThrust: 132000
+  medium:
+    bigQuad: True
+    batteryVoltageWarning: 7.6  # V
+    batteryVoltateCritical: 7.4 # V
     markerConfiguration: 1
     dynamicsConfiguration: 0
     firmwareParams:
       ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
+        kp_xy: 2.0 # p for position
+        kd_xy: 1.0 # d for position
+        ki_xy: 0.1 # i for position
+        i_range_xy: 2.0 # range for position
+        kR_xy: 50000 # 50000 # p for attitude
+        kw_xy: 16000 # 16000 # d for attitude
+        kR_z: 60000 # p for yaw
+        kw_z: 12000 # d for yaw
+        ki_m_z: 500 # i for yaw
         i_range_m_z: 1500 # i range for yaw
         kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF2:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
+        kp_z: 3 # 1.25
+        kd_z: 1.0
+        ki_z: 0.5 # 0.05
+        i_range_z: 2.0
+        mass: 0.110
+        massThrust: 23000 # 23000 - full battery
+  large:
+    bigQuad: True
+    batteryVoltageWarning: 11.4  # V
+    batteryVoltateCritical: 11.1 # V
     markerConfiguration: 2
     dynamicsConfiguration: 0
     firmwareParams:
       ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
+        kp_xy: 8.0 # 0.4 #0.6 # p for position
+        kd_xy: 3.0 # 0.2 # 0.35 # d for position
+        ki_xy: 1.0 # 0.05
         i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
+        kR_xy: 30000 # 40000 # p for attitude
+        kw_xy: 9000 # 13000 # d for attitude
+        kR_z: 40000 # 70000 # p for yaw
+        kw_z: 10000 # 30000  # d for yaw
         ki_m_z: 500 #0 #20000     # i for yaw
         i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF3:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 3
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF4:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 4
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF5:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 5
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.4 # 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.2 # 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.07 # 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF6:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 6
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF7:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 7
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF8:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 8
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF9:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 9
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF10:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 10
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF11:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 11
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF12:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 12
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF13:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 13
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF14:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 14
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF15:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 15
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF16:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 16
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF17:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 17
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF18:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 18
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF19:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 19
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF20:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 20
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF21:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 21
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 0.5 #1.25
-        kd_z: 0.2 #0.4
-        ki_z: 0.02 #0.05
-        i_range_z: 0.2 #0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF22:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 22
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF23:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 23
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.6 #0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.35 #0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.15 #0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.1 #0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF24:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 24
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF25:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 25
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF26:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 26
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF27:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 27
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF28:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 28
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.6 #0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.35 #0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.15 #0,5 #0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 #70000 p for attitude
-        kw_xy: 20000 #20000 d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 #200 roll and pitch angular velocity d gain
-        kp_z: 1.25 #1.25
-        kd_z: 0.4 #0.4
-        ki_z: 0.05 #0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF29:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 29
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF30:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 30
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF31:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 31
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF32:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 32
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.032
-        massThrust: 132000 #132000
-  defaultCF40:
-    bigQuad: False
-    batteryVoltageWarning: 3.8  # V
-    batteryVoltateCritical: 3.7 # V
-    markerConfiguration: 32
-    dynamicsConfiguration: 0
-    firmwareParams:
-      ctrlMel:
-        kp_xy: 0.3 #0.4 #0.6 # p for position
-        kd_xy: 0.15 #0.2 # 0.35 # d for position
-        ki_xy: 0.05
-        i_range_xy: 2.0
-        kR_xy: 70000 # p for attitude
-        kw_xy: 20000 # d for attitude
-        kR_z: 60000 # 70000 # p for yaw
-        kw_z: 12000 # 30000  # d for yaw
-        ki_m_z: 500 #0 #20000     # i for yaw
-        i_range_m_z: 1500 # i range for yaw
-        kd_omega_rp: 200 # roll and pitch angular velocity d gain
-        kp_z: 1.25
-        kd_z: 0.4
-        ki_z: 0.05
-        i_range_z: 0.4
-        mass: 0.063
-        massThrust: 90000 #132000
-  # medium:
-  #   bigQuad: True
-  #   batteryVoltageWarning: 7.6  # V
-  #   batteryVoltateCritical: 7.4 # V
-  #   markerConfiguration: 1
-  #   dynamicsConfiguration: 0
-  #   firmwareParams:
-  #     ctrlMel:
-  #       kp_xy: 2.0 # p for position
-  #       kd_xy: 1.0 # d for position
-  #       ki_xy: 0.1 # i for position
-  #       i_range_xy: 2.0 # range for position
-  #       kR_xy: 50000 # 50000 # p for attitude
-  #       kw_xy: 16000 # 16000 # d for attitude
-  #       kR_z: 60000 # p for yaw
-  #       kw_z: 12000 # d for yaw
-  #       ki_m_z: 500 # i for yaw
-  #       i_range_m_z: 1500 # i range for yaw
-  #       kd_omega_rp: 200 # roll and pitch angular velocity d gain
-  #       kp_z: 3 # 1.25
-  #       kd_z: 1.0
-  #       ki_z: 0.5 # 0.05
-  #       i_range_z: 2.0
-  #       mass: 0.110
-  #       massThrust: 23000 # 23000 - full battery
-  # large:
-  #   bigQuad: True
-  #   batteryVoltageWarning: 11.4  # V
-  #   batteryVoltateCritical: 11.1 # V
-  #   markerConfiguration: 2
-  #   dynamicsConfiguration: 0
-  #   firmwareParams:
-  #     ctrlMel:
-  #       kp_xy: 8.0 # 0.4 #0.6 # p for position
-  #       kd_xy: 3.0 # 0.2 # 0.35 # d for position
-  #       ki_xy: 1.0 # 0.05
-  #       i_range_xy: 2.0
-  #       kR_xy: 30000 # 40000 # p for attitude
-  #       kw_xy: 9000 # 13000 # d for attitude
-  #       kR_z: 40000 # 70000 # p for yaw
-  #       kw_z: 10000 # 30000  # d for yaw
-  #       ki_m_z: 500 #0 #20000     # i for yaw
-  #       i_range_m_z: 1500 # i range for yaw
-  #       kd_omega_rp: 100 # roll and pitch angular velocity d gain
-  #       kp_z: 8.0 # 1.25
-  #       kd_z: 3.0 # 0.4
-  #       ki_z: 2.0 # 0.05
-  #       i_range_z: 4.0
-  #       mass: 0.380
-  #       massThrust: 5400 # 5500 - full battery
-numMarkerConfigurations: 33
+        kd_omega_rp: 100 # roll and pitch angular velocity d gain
+        kp_z: 8.0 # 1.25
+        kd_z: 3.0 # 0.4
+        ki_z: 2.0 # 0.05
+        i_range_z: 4.0
+        mass: 0.380
+        massThrust: 5400 # 5500 - full battery
+numMarkerConfigurations: 4
 markerConfigurations:
   "0":  # for standard Crazyflie
     numPoints: 4
@@ -910,292 +144,37 @@ markerConfigurations:
       "1": [-0.0262914,0.0509139,0.0402475]
       "2": [-0.0328889,-0.02757,0.0390601]
       "3": [0.0431307,-0.0331216,0.0388839]
-  "1":  # for standard Crazyflie ##1
+  "1": # medium frame
     numPoints: 4
-    offset: [0.0, 0.0, 0.0]
+    offset: [0.0, 0.0, -0.03]
     points:
-      "0": [0.00056024,-0.050342,-0.0035719]
-      "1": [-0.04304,-0.0042235,0.029057]
-      "2": [-0.0021819,0.053974,-0.0034481]
-      "3": [0.066274,-0.0028298,0.0013519]
-  "2":  # for standard Crazyflie ##2
+      "0": [-0.00896228,-0.000716753,0.0716129]
+      "1": [-0.0156318,0.0997402,0.0508162]
+      "2": [0.0461693,-0.0881012,0.0380672]
+      "3": [-0.0789959,-0.0269793,0.0461144]
+  "2": # big frame
     numPoints: 4
-    offset: [0.0, 0.0, 0.0]
+    offset: [0.0, 0.0, -0.06]
     points:
-      "0": [-0.049966,-0.0051389,0.025953]
-      "1": [0.057046,-0.0030972,4.7339e-05]
-      "2": [-0.0017956,0.055865,-0.0031499]
-      "3": [0.0047806,-0.052743,-0.0050757]
-  "3":  # for standard Crazyflie ##3
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
+      "0": [0.0558163,-0.00196302,0.0945539]
+      "1": [-0.0113941,0.00945842,0.0984811]
+      "2": [-0.0306277,0.0514879,0.0520456]
+      "3": [0.0535816,-0.0400775,0.0432799]
+  "3":  # for standard Crazyflie with a single marker
+    numPoints: 1
+    offset: [0.0, -0.01, -0.04]
     points:
-      "0": [0.0012216,0.053666,-0.0026351]
-      "1": [0.068847,0.0056962,0.00022983]
-      "2": [-0.044557,-0.0048915,0.023793]
-      "3": [0.0051412,-0.052586,-0.0052791]
-  "4":  # for standard Crazyflie ##4
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.0028706,-0.049791,-0.0041244]
-      "1": [-0.041477,0.0019037,0.021838]
-      "2": [0.065019,-0.00047102,-0.0060912]
-      "3": [0.0013848,0.046913,-0.0029783]
-  "5":  # for standard Crazyflie ##5
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.029706,-0.00022211,0.020834]
-      "1": [0.060711,0.0027615,0.0086726]
-      "2": [0.00068436,-0.045827,-0.0046893]
-      "3": [0.0024835,0.045083,-0.0022108]
-  "6":  # for standard Crazyflie ##6
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.060076,-0.0014614,4.1418e-07]
-      "1": [-0.0024152,-0.050373,-0.0027269]
-      "2": [-0.0019864,0.049101,-0.0044331]
-      "3": [-0.053064,-0.0006841,0.019331]
-  "7":  # for standard Crazyflie ##7
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.072075,-0.00018908,0.005911]
-      "1": [0.00063777,-0.060516,-0.0048734]
-      "2": [0.0014185,0.062678,-0.0018958]
-      "3": [-0.042575,0.00025117,0.023489]
-  "8":  # for standard Crazyflie ##8
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0010471,0.044178,-0.0033157]
-      "1": [0.00069165,-0.047447,-0.004694]
-      "2": [0.062352,0.0024404,-0.00090568]
-      "3": [-0.043633,-0.00094835,0.023349]
-  "9":  # for standard Crazyflie ##9
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.067132,0.00035954,-0.0027768]
-      "1": [-0.0011755,0.048176,-0.0044502]
-      "2": [-0.05083,-0.0056686,0.021423]
-      "3": [0.0056621,-0.055837,-0.0054841]
-  "10":  # for standard Crazyflie ##10
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0084194,0.06255,-0.0031597]
-      "1": [-0.0090691,-0.061059,-0.005134]
-      "2": [0.059667,-0.00080857,0.00076183]
-      "3": [-0.050464,-0.0054416,0.021812]
-  "11":  # for standard Crazyflie #11 --------------------------
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.00067003,0.044118,-0.0039529]
-      "1": [0.0022906,-0.056653,-0.0046974]
-      "2": [0.056711,0.0030306,0.0014972]
-      "3": [-0.055436,-0.0035559,0.023962]
-  "12":  # for standard Crazyflie #12
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.0019603,-0.051776,-0.004767]
-      "1": [0.057643,-0.0053658,0.001083]
-      "2": [0.0012477,0.057348,-0.004337]
-      "3": [-0.05284,-0.0048927,0.022]
-  "13":  # for standard Crazyflie #13
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.061644,-0.0017023,-0.0008727]
-      "1": [-0.042597,-0.0031451,0.022612]
-      "2": [5.0825e-05,0.052481,-0.0046019]
-      "3": [0.00095597,-0.048308,-0.0052058]
-  "14":  # for standard Crazyflie #14
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.038923,-0.00022311,0.02664]
-      "1": [0.053851,0.004295,0.0018681]
-      "2": [0.0013932,-0.057147,-0.0039606]
-      "3": [0.003745,0.050008,-0.0023809]
-  "15":  # for standard Crazyflie #15
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.037604,-0.0019124,0.024881]
-      "1": [0.071803,0.0044044,0.0013931]
-      "2": [0.0045765,-0.056393,-0.0064536]
-      "3": [0.0015255,0.052015,-0.0019526]
-  "16":  # for standard Crazyflie #16
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.063053,-0.00072613,0.0016415]
-      "1": [0.0015332,0.044972,-0.0025723]
-      "2": [-0.038917,-0.0014443,0.020778]
-      "3": [0.002529,-0.046165,-0.0059118]
-  "17":  # for standard Crazyflie #17
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0014782,0.059008,-0.0046967]
-      "1": [0.0013162,-0.059964,-0.0053126]
-      "2": [-0.051866,0.0013512,0.015995]
-      "3": [0.070286,-0.0011001,-0.00076802]
-  "18":  # for standard Crazyflie #18
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0042268,0.063005,-0.0045635]
-      "1": [0.066906,0.00048177,0.0039859]
-      "2": [-0.044972,-0.0028428,0.026141]
-      "3": [0.0012537,-0.067229,-0.0035166]
-  "19":  # for standard Crazyflie #19
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.0026442,-0.045258,-0.0034041]
-      "1": [0.00024828,0.048662,-0.0043611]
-      "2": [0.070203,0.0005513,-0.0025226]
-      "3": [-0.044368,-0.00057041,0.022804]
-  "20":  # for standard Crazyflie #20
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0065727,0.044807,-0.0062438]
-      "1": [0.055337,0.00040926,-0.0012293]
-      "2": [-0.0068521,-0.043708,-0.0065546]
-      "3": [-0.054842,-0.00089367,0.018877]
-  "21":  # for standard Crazyflie #21 --------------------------
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.0027697,-0.049078,-0.0048236]
-      "1": [-0.042848,-0.00068125,0.021359]
-      "2": [0.061813,0.0043856,-0.0015802]
-      "3": [0.0012231,0.050577,-0.0038841]
-  "22":  # for standard Crazyflie #22
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.0019918,-0.053744,-0.0048013]
-      "1": [0.00088907,0.05044,-0.0040851]
-      "2": [-0.054077,0.0028757,0.024686]
-      "3": [0.055374,-0.0031811,0.0018601]
-  "23":  # for standard Crazyflie #23
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.0034258,0.057527,-0.0042062]
-      "1": [-0.04614,-0.0077943,0.027389]
-      "2": [0.0013958,-0.054446,-0.0048871]
-      "3": [0.057604,-0.0045447,0.00064471]
-  "24":  # for standard Crazyflie #24
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.042706,-0.0047043,0.024211]
-      "1": [0.0035265,-0.050723,-0.0046985]
-      "2": [0.063633,0.0024092,-0.00056619]
-      "3": [-0.00026604,0.05722,-0.0032902]
-  "25":  # for standard Crazyflie #25
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.050627,-0.0031591,0.023932]
-      "1": [-0.0020715,0.056098,-0.0046198]
-      "2": [-0.00016777,-0.053956,-0.0060404]
-      "3": [0.052899,-0.004062,-0.00010341]
-  "26":  # for standard Crazyflie #26
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.052694,0.0025294,0.0021199]
-      "1": [-0.057014,0.0012062,0.028545]
-      "2": [-0.00028966,-0.062677,-0.0052562]
-      "3": [-0.00033227,0.048312,-0.0026806]
-  "27":  # for standard Crazyflie #27
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [0.066827,-0.0012491,-0.00059053]
-      "1": [0.0007765,0.053282,-0.0039383]
-      "2": [-0.052522,0.00056756,0.024779]
-      "3": [0.0031218,-0.060418,-0.0047083]
-  "28":  # for standard Crazyflie #28
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      # "0": [-0.046111,-0.0026695,0.026803]
-      # "1": [0.056547,-0.0027214,0.00057508]
-      # "2": [0.0015123,-0.052353,-0.0047102]
-      # "3": [0.0011237,0.054588,-0.0023466]
-      "0": [-0.0017924,0.060935,-0.0066739]
-      "1": [-0.05111,-0.0030701,0.026508]
-      "2": [0.053763,-0.0011056,-0.0048241]
-      "3": [-0.0038153,-0.056692,-0.0011716]
-  "29":  # for standard Crazyflie #29
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.036823,0.0039231,0.028225]
-      "1": [0.053357,0.0018801,0.0026511]
-      "2": [0.001127,-0.056076,-0.0027123]
-      "3": [0.00379,0.054706,-0.0022437]
-  "30":  # for standard Crazyflie #30
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.039955,0.001957,0.025896]
-      "1": [0.059417,0.0018727,0.00015759]
-      "2": [-0.0010827,-0.056529,-0.002621]
-      "3": [0.00050003,0.049872,-0.0044797]
-  "31":  # for standard Crazyflie #31
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [2.2857e-05,-0.054346,-0.0029284]
-      "1": [-0.0007197,0.05096,-0.0048901]
-      "2": [-0.050545,-0.0062181,0.021179]
-      "3": [0.061151,-0.0014022,-0.00024348]
-  "32":  # for standard Crazyflie #32
-    numPoints: 4
-    offset: [0.0, 0.0, 0.0]
-    points:
-      "0": [-0.03809,-0.0059923,0.026505]
-      "1": [-0.0012589,-0.059304,-0.0036991]
-      "2": [-0.0035223,0.054115,-0.0040188]
-      "3": [0.054675,-0.0019343,-0.0005954]
-
-  # "1": # medium frame
-  #   numPoints: 4
-  #   offset: [0.0, 0.0, -0.03]
-  #   points:
-  #     "0": [-0.00896228,-0.000716753,0.0716129]
-  #     "1": [-0.0156318,0.0997402,0.0508162]
-  #     "2": [0.0461693,-0.0881012,0.0380672]
-  #     "3": [-0.0789959,-0.0269793,0.0461144]
-  # "2": # big frame
-  #   numPoints: 4
-  #   offset: [0.0, 0.0, -0.06]
-  #   points:
-  #     "0": [0.0558163,-0.00196302,0.0945539]
-  #     "1": [-0.0113941,0.00945842,0.0984811]
-  #     "2": [-0.0306277,0.0514879,0.0520456]
-  #     "3": [0.0535816,-0.0400775,0.0432799]
+      "0": [0.0177184,0.0139654,0.0557585]
 numDynamicsConfigurations: 1
 dynamicsConfigurations:
   "0":
-    maxXVelocity: 10.0 #2.0
-    maxYVelocity: 10.0 #2.0
-    maxZVelocity: 8.0 #3.0
-    maxPitchRate: 40.0 #20.0
-    maxRollRate: 40.0 #20.0
-    maxYawRate: 20.0 #10.0
-    maxRoll: 4.0 #1.4
-    maxPitch: 4.0 #1.4
-    maxFitnessScore: 0.003 #0.001
+    maxXVelocity: 2.0
+    maxYVelocity: 2.0
+    maxZVelocity: 3.0
+    maxPitchRate: 20.0
+    maxRollRate: 20.0
+    maxYawRate: 10.0
+    maxRoll: 1.4
+    maxPitch: 1.4
+    maxFitnessScore: 0.001
+

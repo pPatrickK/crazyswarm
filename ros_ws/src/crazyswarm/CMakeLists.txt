@@ -15,8 +15,8 @@ find_package(catkin REQUIRED COMPONENTS
   tf_conversions
 )
 
-# Enable C++11
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -145,6 +145,13 @@ endif()
 if (ENABLE_PHASESPACE)
   add_definitions(-DENABLE_PHASESPACE)
 endif()
+if (ENABLE_QUALISYS)
+  add_definitions(-DENABLE_QUALISYS)
+endif()
+if (ENABLE_VRPN)
+  add_definitions(-DENABLE_VRPN)
+endif()
+
 
 # message(${CMAKE_BINARY_DIR}/crazyflie_ros/externalDependencies/libobjecttracker)
 

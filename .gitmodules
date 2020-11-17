@@ -13,7 +13,7 @@
 [submodule "crazyradio-firmware"]
 	path = crazyradio-firmware
 	url = https://github.com/pPatrickK/crazyradio-firmware.git
-	branch= flw
+	branch= master
 [submodule "crazyflie2-nrf-firmware"]
 	path = crazyflie2-nrf-firmware
 	url = https://github.com/bitcraze/crazyflie2-nrf-firmware.git
@@ -24,8 +24,8 @@
 	branch = flw
 [submodule "ros_ws/src/externalDependencies/libmotioncapture"]
 	path = ros_ws/src/externalDependencies/libmotioncapture
-	url = https://github.com/pPatrickK/libmotioncapture.git
-	branch = flw
+	url = https://github.com/USC-ACTLab/libmotioncapture.git
+	branch = master
 [submodule "ros_ws/src/crazyflie_ros"]
 	path = ros_ws/src/crazyflie_ros
 	url = https://github.com/pPatrickK/crazyflie_ros.git

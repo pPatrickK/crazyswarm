@@ -13,11 +13,11 @@
 [submodule "crazyradio-firmware"]
 	path = crazyradio-firmware
 	url = https://github.com/pPatrickK/crazyradio-firmware.git
-	branch=flw
+	branch= flw
 [submodule "crazyflie2-nrf-firmware"]
 	path = crazyflie2-nrf-firmware
-	url = https://github.com/pPatrickK/crazyflie2-nrf-firmware.git
-	branch=flw
+	url = https://github.com/bitcraze/crazyflie2-nrf-firmware.git
+	branch= master
 [submodule "ros_ws/src/externalDependencies/libobjecttracker"]
 	path = ros_ws/src/externalDependencies/libobjecttracker
 	url = https://github.com/pPatrickK/libobjecttracker

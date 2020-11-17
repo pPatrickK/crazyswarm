@@ -28,8 +28,8 @@
 	branch = master
 [submodule "ros_ws/src/crazyflie_ros"]
 	path = ros_ws/src/crazyflie_ros
-	url = https://github.com/pPatrickK/crazyflie_ros.git
-	branch=flw
+	url = https://github.com/whoenig/crazyflie_ros.git
+	branch=master
 [submodule "ros_ws/src/crazyswarm/scripts/DroneCommander"]
 	path = ros_ws/src/crazyswarm/scripts/DroneCommander
 	url = https://github.com/pPatrickK/DroneCommander.git

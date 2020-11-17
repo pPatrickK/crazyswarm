@@ -12,10 +12,10 @@ The convention in the Crazyswarm is to use the following address::
 where ``<X>`` is the number of the Crazyflie in the hexadecimal system. For example cf1 will use address ``0xE7E7E7E701`` and cf10 uses address ``0xE7E7E7E70A``.
 The easiest way to assign addresses is to use the official Crazyflie Python Client.
 
-#. Label your Crazyflies
-#. Assign addresses using the Crazyflie Python Client (use a USB cable for easiest handling)
-#. Each radio can control about 15 Crazyflies. If you have more than 15 CFs you will need to assign different channels to the Crazyflies. For example, if you have 49 Crazyflies you'll need three unique channels. It is up to you which channels you assign to which CF, but a good way is to use the Crazyflie number modulo the number of channels. For example, cf1 is assigned to channel 80, cf2 is assigned to channel 90, cf3 is assigned to channel 100, cf4 is assigned to channel 80 and so on.
-#. Upgrade the firmwares of your Crazyflies with the provided firmwares (both NRF51 and STM32 firmwares).
+1. Label your Crazyflies
+2. Assign addresses using the Crazyflie Python Client (use a USB cable for easiest handling)
+3. Each radio can control about 15 Crazyflies. If you have more than 15 CFs you will need to assign different channels to the Crazyflies. For example, if you have 49 Crazyflies you'll need three unique channels. It is up to you which channels you assign to which CF, but a good way is to use the Crazyflie number modulo the number of channels. For example, cf1 is assigned to channel 80, cf2 is assigned to channel 90, cf3 is assigned to channel 100, cf4 is assigned to channel 80 and so on.
+4. Upgrade the firmwares of your Crazyflies with the provided firmwares (both NRF51 and STM32 firmwares).
 
   - Option 1: Upload the firmware via the command line using ``make cload`` as described `here <https://wiki.bitcraze.io/doc:crazyflie:dev:starting>`_ instead of using Bitcraze graphical app.
   - Option 2: Upload the precompiled firmware by executing the following steps:
@@ -28,22 +28,29 @@ The easiest way to assign addresses is to use the official Crazyflie Python Clie
       #. Set your Crazyflie into bootloader mode by holding the on/off button for 3 seconds (The blue M2 and M3 LEDs start to blink)
       #. ``rosrun crazyflie_tools flash --target stm32 --filename prebuilt/cf2.bin``
 
-
-#. Upgrade the firmware of you Crazyradios with the provided firmware.
+5. Upgrade the firmware of your Crazyradios with the provided firmware.
 
   - Option 1: follow the instructions in the ``crazyradio-firmware`` folder to install the self-compiled version.
   - Option 2: Use the prebuilt binary:
 
       #. ``python crazyradio-firmware/usbtools/launchBootloader.py``
-      #. ``python crazyradio-firmware/usbtools/nrfbootload.py flash prebuilt/cradio.bin``
-      #. Now unplug and re-plug the radio. You can check the version using ``rosrun crazyflie_tools scan``, which should report ``Found Crazyradio with version 99.55``.
+      #. ``sudo python crazyradio-firmware/usbtools/nrfbootload.py flash prebuilt/cradio.bin``
+      #. Now unplug and re-plug the radio. You can check the version using ``rosrun crazyflie_tools scan -v``, which should report ``Found Crazyradio with version 99.55``.
 
-Your Crazyflie needs to be rebooted after any change of the channel/address for the changes to take any effect.
+  - Note: Your Crazyflie needs to be rebooted after any change of the channel/address for the changes to take any effect.
+
+6. Set up PC permissions to use the USB Radio without being root.
+
+  - Option 1: follow the instructions in the ``crazyflie-lib-python`` folder or look at `here <https://github.com/bitcraze/crazyflie-lib-python#platform-notes>`_.
+  - Option 2: Use the script: ``./pc_permissions.sh``
+
 
 Adjust Configuration Files
 --------------------------
 
-There are three major configuration files. First, we have a config file listing all available (but not necessarily active) CFs::
+There are three major configuration files. First, we have a config file listing all available (but not necessarily active) CFs
+
+.. code-block:: yaml
 
     # ros_ws/src/crazyswarm/launch/allCrazyflies.yaml
     crazyflies:
@@ -58,7 +65,9 @@ There are three major configuration files. First, we have a config file listing 
 
 The file assumes that the address of each CF is set as discussed earlier. The channel can be freely configured. The initial position needs to be known for the frame-by-frame tracking as initial guess. Positions are specified in meters, in the coordinate system of your motion capture device. It is not required that the CFs start exactly at those positions (a few centimeters variation is fine).
 
-The second configuration file defines the possible types::
+The second configuration file defines the possible types:
+
+.. code-block:: yaml
 
     # ros_ws/src/crazyswarm/launch/crazyflieTypes.yaml
     crazyflieTypes:
@@ -115,17 +124,21 @@ The third configuration file is the ROS launch file (``ros_ws/src/crazyswarm/lau
 Select Motion Capture System
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Below are the relevant settings for the motion capture system::
+Below are the relevant settings for the motion capture system:
+
+.. code-block:: yaml
 
     # ros_ws/src/crazyswarm/launch/hover_swarm.launch
     # tracking
-    motion_capture_type: "vicon" # one of vicon,optitrack
+    motion_capture_type: "vicon" # one of vicon,optitrack,qualisys
     object_tracking_type: "libobjecttracker" # one of motionCapture,libobjecttracker
     vicon_host_name: "vicon" # only needed if vicon is selected
     optitrack_local_ip: "localhost" # only needed if optitrack is selected
     optitrack_server_ip: "optitrack" # only needed if optitrack is selected
+    qualisys_host_name: "10.0.5.219" # only needed if qualisys is selected
+    qualisys_base_port: 22222 # only needed if qualisys is selected
 
-You can choose the motion capture type (currently ``vicon`` or ``optitrack``). The application will connect the the motion capture system using the appropriate SDKs (DataStream SDK and NatNet, respectively). If you select ``libobjecttracker`` as ``object_tracking_type``, the tracking will just use the raw marker cloud from the motion capture system and track the CFs frame-by-frame. If you select ``motionCapture`` as ``object_tracking_type``, the objects as tracked by the motion capture system will be used. In this case you will need unique marker arrangements and your objects need to be named ``cf1``, ``cf2``, ``cf3``, and so on.
+You can choose the motion capture type (currently ``vicon``, ``optitrack``, ``qualisys``, or ``none``). The application will connect the the motion capture system using the appropriate SDKs (DataStream SDK, NatNet and Qualisys2Ros, respectively). If you select ``libobjecttracker`` as ``object_tracking_type``, the tracking will just use the raw marker cloud from the motion capture system and track the CFs frame-by-frame. If you select ``motionCapture`` as ``object_tracking_type``, the objects as tracked by the motion capture system will be used. In this case you will need unique marker arrangements and your objects need to be named ``cf1``, ``cf2``, ``cf3``, and so on.
 
 When using ``libobjecttracker`` it is important to disable tracking of Crazyflies in your motion capture system's control software. Some motion capture systems remove markers from the point cloud when they are matched to an object. Since ``libobjecttracker`` operates on the raw point cloud, it will not be able to track any Crazyflies that have already been "taken" by the motion capture system.
 
@@ -137,11 +150,6 @@ Vicon is fully supported and tested with Tracker 3.4.
 OptiTrack
 """""""""
 
-.. warning::
-
-    The OptiTrack support currently has the following limitations:
-      * It is incompatible with Motive 2.0 because it uses NatNet 3.0.1 which has a different bit-steam syntax. Use an older version (Motive 1.10.3 is known to work).
-
 Use the following settings for correct operation:
   * Un-tick the rigid body in Motive so that the point cloud is streamed.
   * Advanced network settings. Up axis: Z
@@ -149,16 +157,30 @@ Use the following settings for correct operation:
 
 Instruction on how to use the rigid body option with Optitrack are available `here <https://github.com/USC-ACTLab/libmotioncapture/pull/3>`_.
 
+Qualisys
+""""""""
+
+Qualisys has been tested to work with QTM 2.16 both for rigid body and point cloud. It is expected to work with any later version of QTM.
+
+If using ``motionCapture`` as ``object_tracking_type`` make sure to check the checkbox ``Calculate 6DOF`` in QTM ``Project options/Processing/Real time actions``.
+
+If using ``libobjecttracker`` as ``object_tracking_type`` and you have setup 6DOF tracking for your Crazyflies in QTM, make sure to disable the ``Calculate 6DOF`` checkbox.
+
+None
+""""
+
+The usage of a motion capture system can be disabled by selecting ``none``. This is useful for on-board solutions such as the Ultra-Wideband localization system (UWB), LightHouse, or dead-reckoning using the flow-deck.
+
 
 Configure Marker Arrangement
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you select the ``libobjecttracker`` as ``motion_capture_type``, you will need to provide the marker arrangement of your markers. All CFs must use the same marker configuration. An example marker configuration using four markers is shown below:
 
-.. image:: markerConfigurationExample.jpg
+.. image:: images/markerConfigurationExample.jpg
 
 #. Place one CF with the desired arrangement at the origin of your motion capture space. The front of the Crazyflie should point in the ``x`` direction of the motion capture coordinate system.
-#. Find the coordinates of the used markers, for example by using ``roslaunch crazyswarm mocap_helper.launch``.
+#. Find the coordinates of the used markers, for example by using ``roslaunch crazyswarm mocap_helper.launch``. (You may need to do ``source ros_ws/devel/setup.bash`` before ``roslaunch``)
 #. Update ``crazyflieTypes.yaml``, see the example above.
 
 
@@ -166,15 +188,17 @@ Monitor Swarm
 -------------
 
 A simple GUI is available to enable/disable a subset of the CFs, check the battery voltage, reboot and more.
-The tool reads the ``ros_ws/src/crazyswarm/launch/all49.yaml`` file.
+The tool reads the ``ros_ws/src/crazyswarm/launch/allCrazyflies.yaml`` file.
 You can execute it using::
 
-    ros_ws/src/crazyswarm/scripts
+    cd ros_ws/src/crazyswarm/scripts
     python chooser.py
 
+Also, make sure you have ``pyyaml`` installed before using this tool.
+You can check it by ``pip3 install pyyaml``.
 An example screenshot is given below:
 
-.. image:: chooser.png
+.. image:: images/chooser.png
 
 :Clear:   Disables all CFs
 :Fill:    Enables all CFs

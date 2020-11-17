@@ -1,3 +1,6 @@
+# Exit immediately if a command exits with a non-zero status.
+set -e
+
 ROOT=$PWD
 
 # submodules
@@ -17,14 +20,14 @@ cd $ROOT
 # build nrf firmware
 cd crazyflie2-nrf-firmware
 tools/build/download_deps
-make
+make BLE=0
 cd $ROOT
 
 # build stm firmware
 cd crazyflie-firmware
 git submodule init
 git submodule update
-make
+make -j8
 cd $ROOT
 
 # build radio firmware

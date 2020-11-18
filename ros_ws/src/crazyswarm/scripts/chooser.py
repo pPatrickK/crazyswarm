@@ -65,7 +65,7 @@ if __name__ == '__main__':
 
 	# compute absolute pixel coordinates from the initial positions
 	positions = [node["initialPosition"] for node in allCrazyflies.values()]
-	DOWN_DIR = [-1, 0]
+	DOWN_DIR = [+1, 0]
 	RIGHT_DIR = [0, -1]
 	def dot(a, b):
 		return a[0] * b[0] + a[1] * b[1]

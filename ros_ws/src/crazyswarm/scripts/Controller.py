@@ -1,8 +1,9 @@
 #!/usr/bin/env python
+from __future__ import print_function
 
 import numpy as np
 from pycrazyswarm import *
-import pygame
+from Tkinter import *
 import sys
 import math
 import time
@@ -52,6 +53,12 @@ class CrazyflieWrapper(object):
             self.allcfs.land(targetHeight=0.00, duration=self.land_time)
             print("land")
 
+    def change_start_time(self, amount):
+        self.start_time += amount
+
+    def change_land_time(self, amount):
+        self.land_time += amount
+
     def change_movement_time(self, amount):
         self.movement_time += amount
 
@@ -69,7 +76,7 @@ class Vector2D(object):
         return self.x
     def getY(self):
         return self.y
-    def sefX(self, x):
+    def setX(self, x):
         self.x = x
     def setY(self, y):
         self.y = y
@@ -87,69 +94,133 @@ class Vector2D(object):
 def format_decimal(number):
     return '{0:.2f}'.format(number)
 
-def main():
-    start_time = 2.5
-    land_time = 2.5
-    movement_time = 2.5
-    movement_amount = 0.5
-    height = 0.3
-    cfs = CrazyflieWrapper(start_time, land_time, movement_time, movement_amount, height)
-    pygame.init()
-    pygame.font.init()
-    font = pygame.font.SysFont("ubuntumono", 30)
-    window_size = 800, 600
-    screen = pygame.display.set_mode(window_size)
-    fill_color = 0, 0, 0
-    running = True
-    while running:
+def goto_command(char, object):
+    current_direction = Vector2D()
+    if char == "Left":
+        current_direction.addX(-1.0)
+    if char == "Right":
+        current_direction.addX(1.0)
+    if char == "Up":
+        current_direction.addY(1.0)
+    if char == "Down":
+        current_direction.addY(-1.0)
+
+    if current_direction.length() > 0.01:
+        object.move(current_direction)
+
+class Screen:
+    def __init__(self, main_window):
+        self.main_window = main_window
+        main_window.title("Crazyswarm Flight Controller")
+
+        self.start_time = 2.5
+        self.land_time = 2.5
+        self.movement_time = 2.5
+        self.movement_amount = 0.5
+        self.height = 0.3
+        self.cfs = CrazyflieWrapper(self.start_time, self.land_time, self.movement_time, self.movement_amount, self.height)
+
+        self.takeoff_time_label = Label(main_window, text = "Takeoff Time:")
+        self.land_time_label = Label(main_window, text = "Land Time:")
+        self.movement_time_label = Label(main_window, text = "Move Time:")
+        self.movement_amount_label = Label(main_window, text = "Move Amount:")
+        self.height_label = Label(main_window, text = "Height:")
+        self.takeoff_time_shortcut_label = Label(main_window, text = "( F1 | F2 )", fg = "grey")
+        self.land_time_shortcut_label = Label(main_window, text = "( F3 | F4 )", fg = "grey")
+        self.movement_time_shortcut_label = Label(main_window, text = "( F5 | F6 )", fg = "grey")
+        self.movement_amout_shortcut_label = Label(main_window, text = "( F7 | F8 )", fg = "grey")
+        self.height_shortcut_label = Label(main_window, text = "( F9 | F10 )", fg = "grey")
+        self.takeoff_shortcut_label = Label(main_window, text = "( Page-Up )", fg = "grey")
+        self.land_shortcut_label = Label(main_window, text = "( Page-Down )", fg = "grey")
+        self.shortcut_label = Label(main_window, text = "Shortcuts", font = ("bold"))
+
+        self.takeoff_button = Button(main_window, text = "Takeoff", command = lambda : self.cfs.start())
+        self.land_button = Button(main_window, text = "Land", command = lambda : self.cfs.land())
+        self.left_button = Button(main_window, text = "<", command = lambda : goto_command("Left", self.cfs))
+        self.right_button = Button(main_window, text = ">", command = lambda : goto_command("Right", self.cfs))
+        self.up_button = Button(main_window, text = "^", command = lambda : goto_command("Up", self.cfs))
+        self.down_button = Button(main_window, text = "v", command = lambda : goto_command("Down", self.cfs))
+        self.exit_button = Button(main_window, text = "Quit", command = main_window.quit)
+
+        self.takeoff_entry = Entry(main_window, bd = 2, width = 6)
+        self.land_entry = Entry(main_window, bd = 2, width = 6)
+        self.movement_time_entry = Entry(main_window, bd = 2, width = 6)
+        self.movement_amount_entry = Entry(main_window, bd = 2, width = 6)
+        self.height_entry = Entry(main_window, bd = 2, width = 6)
+
+        self.takeoff_time_label.grid(row = 0, column = 0, pady = 20, padx = 20, sticky = W)
+        self.land_time_label.grid(row = 1, column = 0, pady = 20, padx = 20, sticky = W)
+        self.movement_time_label.grid(row = 2, column = 0, pady = 20, padx = 20, sticky = W)
+        self.movement_amount_label.grid(row = 3, column = 0, pady = 20, padx = 20, sticky = W)
+        self.height_label.grid(row = 4, column = 0, pady = 20, padx = 20, sticky = W)
+        self.takeoff_time_shortcut_label.grid(row = 0, column = 2, pady = 20, padx = 20, sticky = W)
+        self.land_time_shortcut_label.grid(row = 1, column = 2, pady = 20, padx = 20, sticky = W)
+        self.movement_time_shortcut_label.grid(row = 2, column = 2, pady = 20, padx = 20, sticky = W)
+        self.movement_amout_shortcut_label.grid(row = 3, column = 2, pady = 20, padx = 20, sticky = W)
+        self.height_shortcut_label.grid(row = 4, column = 2, pady = 20, padx = 20, sticky = W)
+        self.takeoff_shortcut_label.grid(row = 5, column = 0, padx = 20, sticky = W)
+        self.land_shortcut_label.grid(row = 5, column = 1)
+        self.shortcut_label.grid(row = 5, column = 2)
+
+        self.takeoff_button.grid(row = 6, column = 0, pady = 20, padx = 20, sticky = W)
+        self.land_button.grid(row = 6, column = 1, pady = 20, padx = 20, sticky = W)
+        self.left_button.grid(row = 6, column = 3)
+        self.right_button.grid(row = 6, column = 5)
+        self.up_button.grid(row = 5, column = 4)
+        self.down_button.grid(row = 6, column = 4)
+        self.exit_button.grid(row = 6, column = 2, pady = 20, padx = 20, sticky = W)
+
+        self.takeoff_entry.grid(row = 0, column = 1, pady = 20, padx = 20, sticky = W)
+        self.land_entry.grid(row = 1, column = 1, pady = 20, padx = 20, sticky = W)
+        self.movement_time_entry.grid(row = 2, column = 1, pady = 20, padx = 20, sticky = W)
+        self.movement_amount_entry.grid(row = 3, column = 1, pady = 20, padx = 20, sticky = W)
+        self.height_entry.grid(row = 4, column = 1, pady = 20, padx = 20, sticky = W)
+
+        self.takeoff_entry.insert(0, self.start_time)
+        self.land_entry.insert(0, self.land_time)
+        self.movement_time_entry.insert(0, self.movement_time)
+        self.movement_amount_entry.insert(0, self.movement_amount)
+        self.height_entry.insert(0, self.height)
+
         current_direction = Vector2D()
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-                continue
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    running = False
-                    continue
-                elif event.key == pygame.K_DOWN:
-                    current_direction.addY(-1.0)
-                elif event.key == pygame.K_UP:
-                    current_direction.addY(1.0)
-                elif event.key == pygame.K_RIGHT:
-                    current_direction.addX(1.0)
-                elif event.key == pygame.K_LEFT:
-                    current_direction.addX(-1.0)
-                elif event.key == pygame.K_s:
-                    cfs.start()
-                elif event.key == pygame.K_l:
-                    cfs.land()
-                elif event.key == pygame.K_KP_PLUS:
-                    cfs.change_movement_time(0.1)
-                elif event.key == pygame.K_KP_MINUS:
-                    cfs.change_movement_time(-0.1)
-                elif event.key == pygame.K_KP6:
-                    cfs.change_move_amount(0.1)
-                elif event.key == pygame.K_KP4:
-                    cfs.change_move_amount(-0.1)
-                elif event.key == pygame.K_KP8:
-                    cfs.change_height(0.1)
-                elif event.key == pygame.K_KP2:
-                    cfs.change_height(-0.1)
-        if current_direction.length() > 0.01:
-            cfs.move(current_direction)
-        screen.fill(fill_color)
-        text_surface = font.render("time for starting:" + format_decimal(cfs.start_time), False, (250, 250, 250))
-        screen.blit(text_surface, (10, 10))
-        text_surface = font.render("time for landing:" + format_decimal(cfs.land_time), False, (250, 250, 250))
-        screen.blit(text_surface, (10, 45))
-        text_surface = font.render("time for moving:" + format_decimal(cfs.movement_time), False, (250, 250, 250))
-        screen.blit(text_surface, (10, 80))
-        text_surface = font.render("amount of moving:" + format_decimal(cfs.movement_amount), False, (250, 250, 250))
-        screen.blit(text_surface, (10, 115))
-        text_surface = font.render("height:" + format_decimal(cfs.height), False, (250, 250, 250))
-        screen.blit(text_surface, (10, 150))
-        pygame.display.flip()
-    pygame.quit()
+        # In der Ereignisschleife auf Eingabe des Benutzers warten.
+        main_window.bind("<Left>", lambda event, : goto_command("Left", self.cfs))
+        main_window.bind("<Right>", lambda event, : goto_command("Right", self.cfs))
+        main_window.bind("<Up>", lambda event, : goto_command("Up", self.cfs))
+        main_window.bind("<Down>", lambda event, : goto_command("Down", self.cfs))
+        main_window.bind("<Prior>", lambda event, : self.cfs.start())
+        main_window.bind("<Next>", lambda event, : self.cfs.land())
+        main_window.bind("<End>", lambda event, : main_window.quit())
+        main_window.bind("<F1>", lambda event, : self.cfs.change_start_time(-0.1))
+        main_window.bind("<F2>", lambda event, : self.cfs.change_start_time(0.1))
+        main_window.bind("<F3>", lambda event, : self.cfs.change_land_time(-0.1))
+        main_window.bind("<F4>", lambda event, : self.cfs.change_land_time(0.1))
+        main_window.bind("<F5>", lambda event, : self.cfs.change_movement_time(-0.1))
+        main_window.bind("<F6>", lambda event, : self.cfs.change_movement_time(0.1))
+        main_window.bind("<F7>", lambda event, : self.cfs.change_move_amount(-0.1))
+        main_window.bind("<F8>", lambda event, : self.cfs.change_move_amount(0.1))
+        main_window.bind("<F9>", lambda event, : self.cfs.change_height(-0.1))
+        main_window.bind("<F10>", lambda event, : self.cfs.change_height(0.1))
+
+        self.update_window()
+
+    def update_window(self):
+        self.takeoff_entry.delete(0, END)
+        self.takeoff_entry.insert(0, format_decimal(self.cfs.start_time))
+        self.land_entry.delete(0, END)
+        self.land_entry.insert(0, format_decimal(self.cfs.land_time))
+        self.movement_time_entry.delete(0, END)
+        self.movement_time_entry.insert(0, format_decimal(self.cfs.movement_time))
+        self.movement_amount_entry.delete(0, END)
+        self.movement_amount_entry.insert(0, format_decimal(self.cfs.movement_amount))
+        self.height_entry.delete(0, END)
+        self.height_entry.insert(0, format_decimal(self.cfs.height))
+        self.main_window.after(200, self.update_window)
+
+def main():
+    main_window = Tk()
+    crazyswarm_controller = Screen(main_window)
+    main_window.mainloop()
 
 if __name__ == "__main__":
     main()
